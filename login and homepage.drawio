@@ -1,10 +1,10 @@
 <mxfile host="65bd71144e">
     <diagram name="Login" id="gdCSvqaaScrlXo4l8ALB">
-        <mxGraphModel dx="1378" dy="907" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+        <mxGraphModel dx="1378" dy="590" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="Qeco3BvltGo1VIxwUubx-1" value="" style="group" parent="1" vertex="1" connectable="0">
+                <mxCell id="Qeco3BvltGo1VIxwUubx-1" value="" style="group" connectable="0" vertex="1" parent="1">
                     <mxGeometry x="114" y="35" width="1371.31" height="830" as="geometry"/>
                 </mxCell>
                 <mxCell id="3l-xP1_xD9ffacjxuy4Z-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;fillStyle=auto;" parent="Qeco3BvltGo1VIxwUubx-1" vertex="1">
@@ -29,7 +29,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="TJnFh-B32YA2Bl4hxm8k" name="Homepage">
-        <mxGraphModel dx="1378" dy="907" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+        <mxGraphModel dx="1378" dy="590" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -91,7 +91,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="53iIGrbOYdZx4-FO40pd" name="Admin">
-        <mxGraphModel dx="1378" dy="907" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+        <mxGraphModel dx="1378" dy="590" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
