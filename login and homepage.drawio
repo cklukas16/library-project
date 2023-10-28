@@ -1,121 +1,124 @@
-<mxfile host="app.diagrams.net" modified="2023-10-28T00:42:26.774Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="h6pncfOUbG9oFJg2FKJb" version="22.0.8" type="github">
-  <diagram name="第 1 页" id="gdCSvqaaScrlXo4l8ALB">
-    <mxGraphModel dx="954" dy="581" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;fillStyle=auto;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="760" height="460" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-2" value="&lt;h3&gt;username or email&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="263.75" y="230" width="312.5" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-3" value="&lt;h3&gt;password&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="263.75" y="290" width="312.5" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-4" value="&lt;h1&gt;Login&lt;/h1&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="360" y="350" width="106" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-5" value="&lt;font style=&quot;font-size: 50px;&quot;&gt;Logo&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="360" y="80" width="120" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;fillStyle=auto;" vertex="1" parent="1">
-          <mxGeometry x="40" y="540" width="760" height="460" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-8" value="Forget your password? Or create a new user?" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="283" y="410" width="260" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-9" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;Homepage&lt;br&gt;Logo&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="540" width="170" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-11" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Welcome to the Library! User XXX&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="270" y="575" width="440" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-13" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="240" y="850" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-14" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="850" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-15" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="420" y="850" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-16" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="510" y="850" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-17" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="600" y="850" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-18" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="690" y="850" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-19" value="Search for a book" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="670" width="170" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-21" value="Extend a book" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="720" width="170" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-22" value="Borrowing history" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="770" width="170" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-23" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Library information: news? hours?&lt;br&gt;Message from Admin.&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="263.75" y="695" width="450" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-24" value="Currently Available:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="230" y="820" width="130" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-25" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;fillStyle=auto;" vertex="1" parent="1">
-          <mxGeometry x="40" y="1040" width="760" height="460" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-26" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;Homepage&lt;br&gt;Logo&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="1040" width="170" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-27" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Welcome to the Library! Admin XXX&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="270" y="1075" width="440" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-28" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="240" y="1350" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-29" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="1350" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-30" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="420" y="1350" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-31" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="510" y="1350" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-32" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="600" y="1350" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-33" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="690" y="1350" width="70" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-34" value="Search for a book to &lt;br&gt;Edit or Remove" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="1170" width="170" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-35" value="Add a book to Library" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="1220" width="170" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-36" value="View booklist" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="1270" width="170" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-37" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Library information: news? hours?&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="263.75" y="1195" width="450" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-38" value="Currently Available:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="230" y="1320" width="130" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-39" value="View borrowing history" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="1320" width="170" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-40" value="Send message to All user" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="1370" width="170" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="3l-xP1_xD9ffacjxuy4Z-41" value="Contact admin" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="820" width="170" height="50" as="geometry" />
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e">
+    <diagram name="第 1 页" id="gdCSvqaaScrlXo4l8ALB">
+        <mxGraphModel dx="916" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;fillStyle=auto;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="40" width="760" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-2" value="&lt;h3&gt;username or email&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="263.75" y="230" width="312.5" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-3" value="&lt;h3&gt;password&lt;/h3&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="263.75" y="290" width="312.5" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-4" value="&lt;h1&gt;Login&lt;/h1&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="350" width="106" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-5" value="&lt;font style=&quot;font-size: 50px;&quot;&gt;Logo&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="80" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;fillStyle=auto;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="540" width="760" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-8" value="Forget your password? Or create a new user?" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="283" y="410" width="260" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-9" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;Homepage&lt;br&gt;Logo&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="540" width="170" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-11" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Welcome to the Library! User XXX&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="575" width="440" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-13" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="850" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-14" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="850" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-15" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="850" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-16" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="850" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-17" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="850" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-18" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="850" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-19" value="Search for a book" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="670" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-21" value="Extend a book" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="720" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-22" value="Borrowing history" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="770" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-23" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Library information: news? hours?&lt;br&gt;Message from Admin.&lt;br&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="263.75" y="695" width="450" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-24" value="Currently Available:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="820" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-25" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;fillStyle=auto;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1040" width="760" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-26" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;Homepage&lt;br&gt;Logo&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1040" width="170" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-27" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Welcome to the Library! Admin XXX&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="1075" width="440" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-28" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="1350" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-29" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="1350" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-30" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="1350" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-31" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="1350" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-32" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="1350" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-33" value="New books&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Title" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="1350" width="70" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-34" value="Search for a book to &lt;br&gt;Edit or Remove" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1170" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-35" value="Add a book to Library" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1220" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-36" value="View booklist" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1270" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-37" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Library information: news? hours?&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="263.75" y="1195" width="450" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-38" value="Currently Available:" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="1320" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-39" value="View borrowing history" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1320" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-40" value="Send message to All user" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="1370" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3l-xP1_xD9ffacjxuy4Z-41" value="Contact admin" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="820" width="170" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="View messages from users" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="1420" width="170" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
