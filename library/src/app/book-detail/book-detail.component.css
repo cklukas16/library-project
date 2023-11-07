@@ -41,6 +41,10 @@ button:disabled {
   color: #369;
 }
 
+.buttons {
+  margin-left: 9em;
+}
+
 section {
   display: inline-block;
   margin: 1%;
