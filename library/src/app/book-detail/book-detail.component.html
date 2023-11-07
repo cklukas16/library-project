@@ -1,13 +1,13 @@
 <div *ngIf="book">
-    <h2>Details about &nbsp; {{book.title | uppercase}}</h2>
+    <h2>Details about &nbsp; <span class="title">{{book.title | uppercase}}</span></h2>
     
     <section>
-      <img src="../../public/covers/cover001L.jpg"/>
+      <a [href]="getUrl(false)"><img [src]="getUrl(true)"/></a>
     </section>
     
     <section>
       <div>
-        <label>id: </label>{{book.id}}
+        <label>id: </label><strong>{{book.id}}</strong>
       </div>
       <div>
         <label for="title">Title: </label>
@@ -33,8 +33,8 @@
         <label for="copies">Copies: </label>
         <input id="copies" [(ngModel)]="book.copies" placeholder="copies">
       </div>
+      <button type="button" (click)="save()">Update</button>
+      <button type="button" (click)="goBack()">Back</button>
     </section>
-
-    <button type="button" (click)="save()">Update</button>
-    <button type="button" (click)="goBack()">Back</button>
+    
 </div>

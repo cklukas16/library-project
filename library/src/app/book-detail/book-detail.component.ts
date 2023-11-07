@@ -11,7 +11,6 @@ import { Book } from '../book';
 })
 export class BookDetailComponent implements OnInit {
   book: Book | undefined;
-  coverUrl: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -26,10 +25,15 @@ export class BookDetailComponent implements OnInit {
   getBook(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     
-    this.bookService.getBook(id)
-      .subscribe(book => this.book = book);
+    this.bookService.getBook(id).subscribe(book => this.book = book);
+  }
 
-    this.coverUrl = `../../public/covers/${this.book?.cover}L.jpg`;
+  getUrl(thumbnail: boolean): string {
+    if (thumbnail) {
+      return `../../assets/covers/${this.book?.cover}S.jpg`;
+    } else {
+      return `../../assets/covers/${this.book?.cover}L.jpg`;
+    }
   }
 
   save(): void {

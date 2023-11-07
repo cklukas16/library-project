@@ -3,6 +3,10 @@
 label {
   color: #435960;
   font-weight: bold;
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+  margin-right: 10px;
 }
 
 div {
@@ -12,6 +16,7 @@ div {
 input {
   font-size: 1em;
   padding: .5rem;
+  margin-top: 1%;
 }
 
 button {
@@ -30,4 +35,14 @@ button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
+}
+
+.title {
+  color: #369;
+}
+
+section {
+  display: inline-block;
+  margin: 1%;
+  vertical-align: top;
 }
