@@ -6,10 +6,10 @@
   <li *ngFor="let book of books">
     <a routerLink="/book/{{book.id}}">
       <span class="badge">{{book.id}}</span>
-      <span class="title">{{book.title}}</span>
+      <span class="title">{{ book.title || "Click to update"}}</span>
     </a>
     <button type="button" class="delete" title="delete book" (click)="delete(book)">
-      x
+      <img src="../../assets/drop/ic-delete-file.svg"/>
     </button>
   </li>
   <button type="button" class="add" title="add book" (click)="add()">+</button>

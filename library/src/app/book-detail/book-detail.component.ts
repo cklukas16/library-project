@@ -28,12 +28,8 @@ export class BookDetailComponent implements OnInit {
     this.bookService.getBook(id).subscribe(book => this.book = book);
   }
 
-  getUrl(thumbnail: boolean): string {
-    if (thumbnail) {
-      return `../../assets/covers/${this.book?.cover}S.jpg`;
-    } else {
-      return `../../assets/covers/${this.book?.cover}L.jpg`;
-    }
+  getUrl(): string {
+    return `../../assets/covers/${this.book?.cover}`;
   }
 
   save(): void {
@@ -44,5 +40,14 @@ export class BookDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+
+    if (file && this.book) {
+        this.book.cover = file.name;
+        this.bookService.updateBook(this.book).subscribe();
+    }
   }
 }

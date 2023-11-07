@@ -1,8 +1,19 @@
 <div *ngIf="book">
     <h2>Details about &nbsp; <span class="title">{{book.title | uppercase}}</span></h2>
     
-    <section>
-      <a [href]="getUrl(false)"><img [src]="getUrl(true)"/></a>
+    <section *ngIf="book.cover">
+      <a [href]="getUrl()"><img [src]="getUrl()" width="300px"/></a>
+    </section>
+
+    <section *ngIf="!book.cover">
+      <input type="file" class="file-input" #fileUpload (change)="onFileSelected($event)">
+
+      <div class="file-upload">
+        No cover image uploaded<br>
+        <button class="upload-btn" (click)="fileUpload.click()">
+          Browse for cover image
+        </button>
+      </div>
     </section>
     
     <section>
