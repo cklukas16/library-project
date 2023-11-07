@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { User } from '../user';
-import { UserService } from '../user.service';
+import { Book } from '../book';
+import { BookService } from '../book.service';
 
 @Component({
-  selector: 'app-user-search',
-  templateUrl: './user-search.component.html',
-  styleUrls: ['./user-search.component.css']
+  selector: 'app-book-search',
+  templateUrl: './book-search.component.html',
+  styleUrls: ['./book-search.component.css']
 })
-export class UserSearchComponent implements OnInit {
+export class BookSearchComponent implements OnInit {
   
-  users$!: Observable<User[]>;
+  books$!: Observable<Book[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private userService: UserService) {}
+  constructor(private bookService: BookService) {}
 
   // Push a search term into the observable stream.
   search(term: string): void {
@@ -22,7 +22,7 @@ export class UserSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.users$ = this.searchTerms.pipe(
+    this.books$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
       debounceTime(300),
 
@@ -30,7 +30,7 @@ export class UserSearchComponent implements OnInit {
       distinctUntilChanged(),
 
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.userService.searchUsers(term)),
+      switchMap((term: string) => this.bookService.searchBooks(term)),
     );
   }
 }

@@ -1,8 +1,12 @@
-/* HomepageComponent's private CSS styles */
+/* BookDetailComponent's private CSS styles */
 
 label {
   color: #435960;
   font-weight: bold;
+}
+
+div {
+  margin-bottom: 1%;
 }
 
 input {

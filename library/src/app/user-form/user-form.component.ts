@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { User } from '../user';
 
 @Component({
   selector: 'app-user-form',
@@ -8,7 +7,7 @@ import { User } from '../user';
 })
 export class UserFormComponent {
   
-  model: User = {id: 1, name: ''};
+  model = {id: 1, name: ''};
 
   submitted = false;
 

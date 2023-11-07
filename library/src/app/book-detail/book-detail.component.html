@@ -1,0 +1,40 @@
+<div *ngIf="book">
+    <h2>Details about &nbsp; {{book.title | uppercase}}</h2>
+    
+    <section>
+      <img src="../../public/covers/cover001L.jpg"/>
+    </section>
+    
+    <section>
+      <div>
+        <label>id: </label>{{book.id}}
+      </div>
+      <div>
+        <label for="title">Title: </label>
+        <input id="title" [(ngModel)]="book.title" placeholder="title">
+      </div>
+      <div>
+        <label for="author">Author: </label>
+        <input id="author" [(ngModel)]="book.author" placeholder="author">
+      </div>
+      <div>
+        <label for="year">Year: </label>
+        <input id="year" [(ngModel)]="book.year" placeholder="year">
+      </div>
+      <div>
+        <label for="publisher">Publisher: </label>
+        <input id="publisher" [(ngModel)]="book.publisher" placeholder="publisher">
+      </div>
+      <div>
+        <label for="category">Category: </label>
+        <input id="category" [(ngModel)]="book.category" placeholder="category">
+      </div>
+      <div>
+        <label for="copies">Copies: </label>
+        <input id="copies" [(ngModel)]="book.copies" placeholder="copies">
+      </div>
+    </section>
+
+    <button type="button" (click)="save()">Update</button>
+    <button type="button" (click)="goBack()">Back</button>
+</div>
