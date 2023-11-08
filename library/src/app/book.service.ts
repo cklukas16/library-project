@@ -43,6 +43,7 @@ export class BookService {
 
   // URL to web api
   private booksUrl = 'api/books';
+  private coversUrl = 'api/covers';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -105,4 +106,12 @@ export class BookService {
       catchError(this.handleError<Book>('deleteBook'))
     );
   }
+
+  testBack(): Observable<any> {
+    return this.http.get(this.coversUrl).pipe(
+      tap(_ => this.log(`fetched backend`)),
+      catchError(this.handleError<any>(`error`))
+    );
+  }
+
 }

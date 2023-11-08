@@ -7,7 +7,7 @@
         <a href="{{ book.cover }}"><img src="{{ book.cover }}" width="250px"/></a>
       </div>
       <div *ngIf="!book.cover" class="file-upload">
-        <img src="../../assets/drop/ic-upload-file.svg"/>
+        <img src="../../assets/icons/ic-upload-file.svg"/>
       </div>
       <button class="upload-btn" (click)="fileUpload.click()">
         Browse for cover image

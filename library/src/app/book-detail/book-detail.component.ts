@@ -42,8 +42,14 @@ export class BookDetailComponent implements OnInit {
     const file: File = event.target.files[0];
 
     if (file && this.book) {
-        this.book.cover = `../../assets/covers/cover${this.book.id}.jpg`;
+        this.book.cover = `cover${this.book.id}.jpg`;
         this.bookService.updateBook(this.book).subscribe();
+
+        /* this.http.get('/api/cover-upload').subscribe();
+        const formData = new FormData();
+        formData.append('cover', file);
+        const upload$ = this.http.post('/api/cover-upload', formData);
+        upload$.subscribe(); */
     }
   }
 }
