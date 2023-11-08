@@ -38,16 +38,12 @@ export class BookDetailComponent implements OnInit {
     this.location.back();
   }
 
-  onFileSelected(event: any) {
+  async onFileSelected(event: any) {
     const file: File = event.target.files[0];
-    const reader: FileReader = new FileReader();
 
     if (file && this.book) {
         this.book.cover = `../../assets/covers/cover${this.book.id}.jpg`;
         this.bookService.updateBook(this.book).subscribe();
-
-        //reader.onloadend = (e) => { this.image = reader.result; };
-        reader.readAsDataURL(file);
     }
   }
 }
