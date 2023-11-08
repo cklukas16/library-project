@@ -28,10 +28,6 @@ export class BookDetailComponent implements OnInit {
     this.bookService.getBook(id).subscribe(book => this.book = book);
   }
 
-  getUrl(): string {
-    return `../../assets/covers/${this.book?.cover}`;
-  }
-
   save(): void {
     if (this.book) {
       this.bookService.updateBook(this.book).subscribe(() => this.goBack());
@@ -44,10 +40,14 @@ export class BookDetailComponent implements OnInit {
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
+    const reader: FileReader = new FileReader();
 
     if (file && this.book) {
-        this.book.cover = file.name;
+        this.book.cover = `../../assets/covers/cover${this.book.id}.jpg`;
         this.bookService.updateBook(this.book).subscribe();
+
+        //reader.onloadend = (e) => { this.image = reader.result; };
+        reader.readAsDataURL(file);
     }
   }
 }
