@@ -11,7 +11,6 @@ import { Book } from '../book';
 })
 export class BookDetailComponent implements OnInit {
   book: Book | undefined;
-  coverUrl: string | undefined;
   coverFile: File | undefined;
   coverView: any;
 
@@ -29,20 +28,29 @@ export class BookDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.bookService.getBook(id).subscribe(book => {
       this.book = book;
-      this.coverUrl = book.cover;
+    });
+  }
+
+  updateBook(updateBook: Book): void {
+    this.bookService.updateBook(updateBook).subscribe(() => {
+      window.alert('This book is successfully updated!');
+      window.location.reload();
     });
   }
 
   save(): void {
     if (this.book) {
-      let book = this.book;
+      let updateBook = this.book;
       if (this.coverFile) {
         const formData = new FormData();
-        formData.append('cover', this.coverFile, `cover${book.id}.jpg`);
-        this.bookService.addCover(formData).subscribe(cover => {book.cover = cover.url});
+        formData.append('cover', this.coverFile, `cover${this.book.id}.jpg`);
+        this.bookService.addCover(formData).subscribe(cover => {
+          updateBook.cover = cover.url;
+          this.updateBook(updateBook);
+        });
+      } else {
+        this.updateBook(updateBook);
       }
-      window.location.reload();
-      this.bookService.updateBook(book).subscribe(() => this.goBack());
     }
   }
 

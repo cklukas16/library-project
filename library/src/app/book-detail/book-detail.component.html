@@ -8,22 +8,18 @@
         <img src="{{ coverView }}" width="250px"/>
       </div>
       <div *ngIf="!coverView">
-        <div *ngIf="coverUrl">
-          <a href="{{ coverUrl }}"><img src="{{ coverUrl }}" width="250px"/></a>
+        <div *ngIf="book.cover">
+          <a href="{{ book.cover }}"><img src="{{ book.cover }}" width="250px"/></a>
         </div>
-        <div *ngIf="!coverUrl" class="file-upload">
+        <div *ngIf="!book.cover" class="file-upload">
           <img src="../../assets/icons/ic-upload-file.svg"/>
         </div>
       </div>
-      
-      <button class="upload-btn" (click)="fileUpload.click()">
-        Browse for cover image
-      </button>
     </section>
     
     <section>
-      <div>
-        <label>id: </label><strong>{{book.id}}</strong>
+      <div class="id">
+        <label>Id: </label><strong>{{book.id}}</strong>
       </div>
       <div>
         <label for="title">Title: </label>
@@ -50,8 +46,9 @@
         <input id="copies" [(ngModel)]="book.copies" placeholder="copies">
       </div>
       <div class="buttons">
-        <button type="button" (click)="save()">Update</button>
-        <button type="button" (click)="goBack()">Back</button>
+        <button (click)="fileUpload.click()">Browse cover image</button>
+        <button (click)="save()">Update</button>
+        <button (click)="goBack()">Back</button>
       </div>
     </section>
     

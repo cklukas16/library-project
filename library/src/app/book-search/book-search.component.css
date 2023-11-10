@@ -46,3 +46,11 @@ ul.search-result {
     margin-top: 0;
     padding-left: 0;
 }
+
+#search-component {
+    padding: 1%;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../assets/public/search-box.jpg);
+}

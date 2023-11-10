@@ -78,8 +78,14 @@ app.post('/api/books', (req: any, resp: any) => {
 app.delete('/api/books/:id', (req: any, resp: any) => {
     const book = books.find(book => book.id == req.params.id);
     if (book) {
+        const targetPath = path.join(coverPath, `cover${book.id}.jpg`); 
         const index = books.indexOf(book);
         books.splice(index, 1);
+        fs.unlink(targetPath, (err: any) => {
+            if (!err) {
+                console.log(`cover${book.id}.jpg was deleted`);
+            }
+        });
         resp.status(200);
         return resp.json(book);
     } else {
