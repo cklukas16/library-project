@@ -3,12 +3,19 @@
     
     <section>
       <input type="file" class="file-input" #fileUpload (change)="onFileSelected($event)">
-      <div *ngIf="book.cover">
-        <a href="{{ book.cover }}"><img src="{{ book.cover }}" width="250px"/></a>
+      
+      <div *ngIf="coverView">
+        <img src="{{ coverView }}" width="250px"/>
       </div>
-      <div *ngIf="!book.cover" class="file-upload">
-        <img src="../../assets/icons/ic-upload-file.svg"/>
+      <div *ngIf="!coverView">
+        <div *ngIf="coverUrl">
+          <a href="{{ coverUrl }}"><img src="{{ coverUrl }}" width="250px"/></a>
+        </div>
+        <div *ngIf="!coverUrl" class="file-upload">
+          <img src="../../assets/icons/ic-upload-file.svg"/>
+        </div>
       </div>
+      
       <button class="upload-btn" (click)="fileUpload.click()">
         Browse for cover image
       </button>

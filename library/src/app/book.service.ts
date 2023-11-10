@@ -107,10 +107,11 @@ export class BookService {
     );
   }
 
-  testBack(): Observable<any> {
-    return this.http.get(this.coversUrl).pipe(
-      tap(_ => this.log(`fetched backend`)),
-      catchError(this.handleError<any>(`error`))
+  /** POST: add a book cover */
+  addCover(image: any): Observable<any> {
+    return this.http.post<any>(this.coversUrl, image).pipe(
+      tap(_ => this.log(`added book cover: ${image.get('cover').name}`)),
+      catchError(this.handleError<any>('addCover'))
     );
   }
 

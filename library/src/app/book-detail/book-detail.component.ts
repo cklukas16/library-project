@@ -11,6 +11,9 @@ import { Book } from '../book';
 })
 export class BookDetailComponent implements OnInit {
   book: Book | undefined;
+  coverUrl: string | undefined;
+  coverFile: File | undefined;
+  coverView: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,13 +27,22 @@ export class BookDetailComponent implements OnInit {
   
   getBook(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    
-    this.bookService.getBook(id).subscribe(book => this.book = book);
+    this.bookService.getBook(id).subscribe(book => {
+      this.book = book;
+      this.coverUrl = book.cover;
+    });
   }
 
   save(): void {
     if (this.book) {
-      this.bookService.updateBook(this.book).subscribe(() => this.goBack());
+      let book = this.book;
+      if (this.coverFile) {
+        const formData = new FormData();
+        formData.append('cover', this.coverFile, `cover${book.id}.jpg`);
+        this.bookService.addCover(formData).subscribe(cover => {book.cover = cover.url});
+      }
+      window.location.reload();
+      this.bookService.updateBook(book).subscribe(() => this.goBack());
     }
   }
 
@@ -38,18 +50,12 @@ export class BookDetailComponent implements OnInit {
     this.location.back();
   }
 
-  async onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-
-    if (file && this.book) {
-        this.book.cover = `cover${this.book.id}.jpg`;
-        this.bookService.updateBook(this.book).subscribe();
-
-        /* this.http.get('/api/cover-upload').subscribe();
-        const formData = new FormData();
-        formData.append('cover', file);
-        const upload$ = this.http.post('/api/cover-upload', formData);
-        upload$.subscribe(); */
+  onFileSelected(event: any) {
+    this.coverFile = event.target.files[0];
+    if (this.coverFile) {
+      const reader = new FileReader();
+      reader.readAsDataURL(this.coverFile);
+      reader.onload= () => { this.coverView = reader.result}
     }
   }
 }

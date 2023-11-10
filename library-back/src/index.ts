@@ -1,29 +1,25 @@
 // Get the required modules
 const express = require('express');
 const fileUpload = require('express-fileupload');
+const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
-const bodyParser = require('body-parser');
-const cors = require("cors");
-import { Book } from './book';
 
-// Initial the application
 const app = express();
 app.use(fileUpload());
-//app.use(bodyParser.raw({ type: ['image/jpeg', 'image/png'], limit: '5mb' }));
 app.use(bodyParser.json());
-app.use(cors());
-require('dotenv').config();
+
+const bookData = path.join(__dirname, 'books.json');
+const coverPath = path.join(__dirname, 'images', 'covers');
 
 // set the port
+require('dotenv').config();
 const port = process.env.PORT || 3000;
 
-// set directories
-const coverPath = path.join(__dirname, 'images', 'covers');
-const bookData = path.join(__dirname, 'books.json');
-
-// Read the books.json file
+// Import books
+import { Book } from './book';
 let books: Book[] = [];
+
 fs.readFile(bookData, (err: any, data: any) => {
     if (err) {
         console.error(`Unable to file: ${bookData}`);
@@ -94,21 +90,22 @@ app.delete('/api/books/:id', (req: any, resp: any) => {
     }
 });
 
-/* ========================================== */
-
+// Create a GET endpoint for cover images
 app.get('/api/covers/:name', (req: any, resp: any) => {
-    console.log("Hello");
-    resp.status(200);
+    const coverPath = path.join(__dirname, 'images', 'covers', req.params.name);
+    return resp.sendFile(coverPath);
 });
 
-app.post('/api/covers', (req: any, resp: any) => {
-
-    let file = req['files'].cover;
-    console.log("File uploaded: ", file.name);
-    
-    resp.sendStatus(200);
-
- });
+// Create a POST endpoint for cover images
+app.post('/api/covers', async (req: any, resp: any) => {
+    let file = req.files.cover;
+    let targetPath = path.join(coverPath, file.name);
+    file.mv(targetPath);
+    resp.status(200);
+    return resp.json({
+        url: `http://localhost:${port}/api/covers/${file.name}`
+    });
+});
 
 app.listen(port, () => {
     console.log(`Running on port ${port}`);
