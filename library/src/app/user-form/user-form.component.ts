@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-user-form',
@@ -7,10 +9,37 @@ import { Component } from '@angular/core';
 })
 export class UserFormComponent {
   
-  model = {id: 1, name: ''};
+  form: FormGroup;
 
-  submitted = false;
+  constructor(
+    public auth: AngularFireAuth,
+    private fb: FormBuilder
+  ){
+    this.form = this.fb.group({
+      email: ['',Validators.required],
+      password: ['',Validators.required]
+  });
+  }
 
-  onSubmit() { this.submitted = true; }
+  signIn(): void {
+    const val = this.form.value;
+    this.auth.signInWithEmailAndPassword(val.email, val.password).catch(() => {
+      window.alert('Please check your email and password');
+    });
+  }
+
+  signOut(): void {
+    this.auth.signOut();
+  }
+
+  signUp(): void {
+    const val = this.form.value;
+    this.auth.createUserWithEmailAndPassword(val.email, val.password).then(() => {
+      window.alert('Sign up successful!');
+    })
+    .catch(() => {
+      window.alert('The email address is already in use by another account');
+    });
+  }
 
 }

@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookSearchComponent } from './book-search/book-search.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { UserFormComponent } from './user-form/user-form.component';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

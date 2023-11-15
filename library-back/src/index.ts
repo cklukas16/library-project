@@ -4,7 +4,13 @@ const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
+const admin = require('firebase-admin');
+const credentials = require('./credentials.json');
 
+// Initialization
+admin.initializeApp({
+    credential: admin.credential.cert(credentials)
+});
 const app = express();
 app.use(fileUpload());
 app.use(bodyParser.json());
