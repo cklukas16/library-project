@@ -1,30 +1,21 @@
 <div *ngIf="auth.user | async">
-    <h1>Library</h1>
-    <button class="signout" (click)="signOut()">Sign Out</button>
-    <app-dashboard></app-dashboard>
-    
-    <hr>
-    <app-messages></app-messages>
-  </div>
+  <app-dashboard></app-dashboard>
+</div>
   
-  <div *ngIf="!(auth.user | async)">
-    <h1>Library</h1>
-    <form [formGroup]="form">
-      <fieldset>
-          <legend>Login</legend>
-          <div class="form-field">
-              <label>Email:</label>
-              <input name="email" formControlName="email" placeholder="user@example.com">
-          </div>
-          <div class="form-field">
-              <label>Password:</label>
-              <input name="password" formControlName="password" [type]="pwdType" placeholder="password">
-              <button class="showPwd" (click)="hidePassword()">Show Password</button>
-          </div>
-          <div class="form-buttons">
-            <button class="signin" (click)="signIn()">Login</button>
-            <button class="signuup" (click)="signUp()">Sign Up</button>
-        </div>
-      </fieldset>
+<div *ngIf="!(auth.user | async)">
+  <div class="center">
+    <img class="picture" src="../assets/icons/ic-login.png">
+    <form class="form" [formGroup]="form">
+      <div>
+        <input class="input-text" type="text" formControlName="email" placeholder="username or email">
+      </div>
+      <div>
+        <input class="input-text" type="password" formControlName="password" placeholder="password">
+      </div>
+      <div>
+        <button type="submit" (click)="signIn()">Login</button>
+      </div>
     </form>
+    <small (click)="signUp()">Forgot your password? Or create a new user?</small>
   </div>
+</div>

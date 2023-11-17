@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  email: string = 'user@example.com';
+
+  constructor(public auth: AngularFireAuth){ }
+
+  signOut(): void {
+    this.auth.signOut();
+  }
+  
 }

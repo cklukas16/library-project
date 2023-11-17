@@ -9,7 +9,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AppComponent {
   form: FormGroup;
-  pwdType: string = 'password';
 
   constructor(
     public auth: AngularFireAuth,
@@ -21,14 +20,6 @@ export class AppComponent {
   });
   }
 
-  hidePassword(): void {
-    if (this.pwdType === 'password') {
-      this.pwdType = 'text';
-    } else {
-      this.pwdType = 'password';
-    }
-  }
-
   signIn(): void {
     const val = this.form.value;
     this.auth.signInWithEmailAndPassword(val.email, val.password).then(() => {
@@ -36,10 +27,6 @@ export class AppComponent {
     }).catch(() => {
       window.alert('Please check your email and password');
     });
-  }
-
-  signOut(): void {
-    this.auth.signOut();
   }
 
   signUp(): void {
