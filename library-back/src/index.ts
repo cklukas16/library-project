@@ -4,13 +4,6 @@ const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
-const admin = require('firebase-admin');
-const credentials = require('../credentials.json');
-
-// Authentication
-admin.initializeApp({
-    credential: admin.credential.cert(credentials)
-});
 
 // Initialization
 const app = express();
@@ -19,6 +12,7 @@ app.use(bodyParser.json());
 
 const bookData = path.join(__dirname, 'data', 'books.json');
 const coverPath = path.join(__dirname, 'images', 'covers');
+const userData = path.join(__dirname, 'data', 'users.json');
 
 // set the port
 require('dotenv').config();
@@ -26,13 +20,37 @@ const port = process.env.PORT || 3000;
 
 // Import books
 import { Book } from './models/book';
+import { User } from './models/user';
 let books: Book[] = [];
+let users: User[] = [];
 
 fs.readFile(bookData, (err: any, data: any) => {
     if (err) {
         console.error(`Unable to file: ${bookData}`);
     } else {
         books = JSON.parse(data);
+    }
+});
+
+fs.readFile(userData, (err: any, data: any) => {
+    if (err) {
+        console.error(`Unable to file: ${bookData}`);
+    } else {
+        users = JSON.parse(data);
+    }
+});
+
+// Create a GET endpoint for users
+app.get('/api/users/:email', (req: any, resp: any) => {
+    const user = users.find(user => user.email == req.params.email);
+    if (user) {
+        resp.status(200);
+        return resp.json(user);
+    } else {
+        resp.status(404);
+        return resp.json({
+            error: `User with email ${req.params.email} is not found`
+        });
     }
 });
 

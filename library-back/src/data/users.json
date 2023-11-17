@@ -1,0 +1,22 @@
+[
+    {
+        "email" : "user@example.com",
+        "name" : "User",
+        "currentBorrows" : [
+            {
+                "id" : 1,
+                "date" : "2023-10-10T08:00:00Z"
+            }
+        ],
+        "historyBorrows" : [
+            {
+                "id" : 2,
+                "date" : "2022-10-31T09:00:00Z"
+            },
+            {
+                "id" : 8,
+                "date" : "2022-12-31T10:00:00Z"
+            }
+        ]
+    }
+]

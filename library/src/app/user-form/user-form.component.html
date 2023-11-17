@@ -1,1 +1,12 @@
-<h2>This is the user page</h2>
+<h2>User profile</h2>
+<p>
+    {{user?.name}}: {{user?.email}}
+</p>
+<h3>Current borrows</h3>
+<p *ngFor="let borrow of user?.currentBorrows">
+    Book {{ borrow.id }} at time {{ borrow.date | date }}
+</p>
+<h3>Borrow History</h3>
+<p *ngFor="let borrow of user?.historyBorrows">
+    Book {{ borrow.id }} at time {{ borrow.date | date }}
+</p>

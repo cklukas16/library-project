@@ -23,7 +23,7 @@ export class AppComponent {
   signIn(): void {
     const val = this.form.value;
     this.auth.signInWithEmailAndPassword(val.email, val.password).then(() => {
-      window.alert(`Welcome to the Library! ${val.email}`);
+      window.alert('Welcome to the Library!');
     }).catch(() => {
       window.alert('Please check your email and password');
     });
