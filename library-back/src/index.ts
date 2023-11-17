@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
 const admin = require('firebase-admin');
-const credentials = require('./credentials.json');
+const credentials = require('../credentials.json');
 
 // Authentication
 admin.initializeApp({
@@ -17,7 +17,7 @@ const app = express();
 app.use(fileUpload());
 app.use(bodyParser.json());
 
-const bookData = path.join(__dirname, 'books.json');
+const bookData = path.join(__dirname, 'data', 'books.json');
 const coverPath = path.join(__dirname, 'images', 'covers');
 
 // set the port
@@ -25,7 +25,7 @@ require('dotenv').config();
 const port = process.env.PORT || 3000;
 
 // Import books
-import { Book } from './book';
+import { Book } from './models/book';
 let books: Book[] = [];
 
 fs.readFile(bookData, (err: any, data: any) => {
