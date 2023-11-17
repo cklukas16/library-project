@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homepage sidebar</title>
+
+  
+  <style>
+    /* style for heder */
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      border:solid 1px black;
+
+    }
+    .logo-picture {
+      height: 150px;
+      width: 150px;
+      margin: 0;
+      
+    }
+    .title {
+      margin-left: 20%;
+      margin-right: 20%;
+      font-size: larger;
+      padding:20px;
+    }
+    .profile {
+      margin-right: 30px;
+      border:solid 1px black;
+      padding: 20px;
+    }
+
+    /* style for sidebar */
+    .sidebar {
+      position: fixed;
+      top: 180px;
+      width: 200px;
+      z-index: 200;
+      padding-top: 5px;
+    }
+    .sidebar-btn {
+      height:50px;
+      border: solid 1px black;
+      text-align:center;
+      padding: 5px;
+    }
+    .main-content {
+      margin-top: 30px;
+      margin-left: 230px;
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- the header -->
+  <header class="center">
+    <img class="logo-picture" src="../resource/logo.png">
+    <div class="title">Welcome to the Library! Admin XXX</div>
+    <div class="profile">Edit Profile</div>
+    <div class="profile">Sign Out</div>
+  </header>
+
+  <!-- the sidebar -->
+  <nav>
+    <div class="sidebar">
+      <div class="sidebar-btn">
+        <div>Search for a book to Edit or Remove</div>
+      </div>
+      <div class="sidebar-btn">
+        <div>Add a book to Library</div>
+      </div>
+      <div class="sidebar-btn">
+        <div>View Booklist</div>
+      </div>
+      <div class="sidebar-btn">
+        <div>View Borrowing history</div>
+      </div>
+      <div class="sidebar-btn">
+        <div>Send Message to all user</div>
+      </div>
+      <div class="sidebar-btn">
+        <div>View Message from user</div>
+      </div>
+      <div class="sidebar-btn">
+        <div>Contact Admin</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- the main content -->
+  <main>
+    <div class="main-content">
+      <!-- put content here -->
+      I will start here.
+    </div>
+  </main>
+</body>
+</html>
