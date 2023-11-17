@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
-import { Book} from './book';
+import { Book} from '../models/book';
 
 @Injectable({
   providedIn: 'root'

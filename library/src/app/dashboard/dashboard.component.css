@@ -5,7 +5,7 @@ h2 {
 }
 
 nav a {
-    width: 12%;
+    width: fit-content;
     padding: 1rem;
     text-decoration: none;
     margin: 20px 10px 20px 0px;

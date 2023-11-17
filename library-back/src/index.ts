@@ -7,10 +7,12 @@ const fs = require('fs');
 const admin = require('firebase-admin');
 const credentials = require('./credentials.json');
 
-// Initialization
+// Authentication
 admin.initializeApp({
     credential: admin.credential.cert(credentials)
 });
+
+// Initialization
 const app = express();
 app.use(fileUpload());
 app.use(bodyParser.json());
@@ -37,7 +39,7 @@ fs.readFile(bookData, (err: any, data: any) => {
 // Create a GET endpoint for books
 app.get('/api/books', (req: any, resp: any) => {
     if (req.query.title) {
-        const booksReq = books.filter(book => book.title.includes(req.query.title));
+        const booksReq = books.filter(book => book.title.toUpperCase().includes(req.query.title.toUpperCase()));
         resp.status(200);
         return resp.json(booksReq);
     } else {
@@ -119,6 +121,7 @@ app.post('/api/covers', async (req: any, resp: any) => {
     });
 });
 
+// Listener
 app.listen(port, () => {
     console.log(`Running on port ${port}`);
 });

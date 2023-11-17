@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Book } from '../book';
-import { BookService } from '../book.service';
+import { Book } from '../models/book';
+import { BookService } from '../shared/book.service';
 
 @Component({
   selector: 'app-book-search',
