@@ -1,12 +1,24 @@
-<h2>User profile</h2>
+<h2>Borrowing Details</h2>
 <p>
     {{user?.name}}: {{user?.email}}
 </p>
-<h3>Current borrows</h3>
-<p *ngFor="let borrow of user?.currentBorrows">
-    Book {{ borrow.id }} at time {{ borrow.date | date }}
-</p>
-<h3>Borrow History</h3>
-<p *ngFor="let borrow of user?.historyBorrows">
-    Book {{ borrow.id }} at time {{ borrow.date | date }}
-</p>
+<br/>
+
+<section *ngIf="user?.email === 'admin@example.com'">
+    <h3>User information</h3><hr>
+    <p>List of users</p>
+</section>
+
+<section *ngIf="user?.email !== 'admin@example.com'">
+    <h3>Current Borrowing</h3><hr>
+    <p *ngFor="let borrow of user?.currentBorrows">
+        Borrowing Date: <strong>{{ borrow.date | date }}</strong>
+        <app-book-view [id]="borrow.id"></app-book-view>
+    </p>
+    <h3>Borrowing History</h3><hr>
+    <p *ngFor="let borrow of user?.historyBorrows">
+        Borrowing Date: <strong>{{ borrow.date | date }}</strong>
+        <app-book-view [id]="borrow.id"></app-book-view>
+    </p>
+</section>
+

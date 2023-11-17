@@ -10,19 +10,19 @@ const app = express();
 app.use(fileUpload());
 app.use(bodyParser.json());
 
+// Set dirctories
 const bookData = path.join(__dirname, 'data', 'books.json');
 const coverPath = path.join(__dirname, 'images', 'covers');
 const userData = path.join(__dirname, 'data', 'users.json');
+const adminData = path.join(__dirname, 'data', 'admins.json');
 
-// set the port
+// Set the port
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 
-// Import books
-import { Book } from './models/book';
-import { User } from './models/user';
-let books: Book[] = [];
-let users: User[] = [];
+// Import data
+let books: any[] = [];
+let users: any[] = [];
 
 fs.readFile(bookData, (err: any, data: any) => {
     if (err) {
@@ -34,7 +34,7 @@ fs.readFile(bookData, (err: any, data: any) => {
 
 fs.readFile(userData, (err: any, data: any) => {
     if (err) {
-        console.error(`Unable to file: ${bookData}`);
+        console.error(`Unable to file: ${userData}`);
     } else {
         users = JSON.parse(data);
     }
@@ -52,6 +52,26 @@ app.get('/api/users/:email', (req: any, resp: any) => {
             error: `User with email ${req.params.email} is not found`
         });
     }
+});
+
+// Create a PUT endpoint for users
+app.put('/api/users', (req: any, resp: any) => {
+    const userNew = req.body;
+    const userOri = users.find(user => user.email == userNew.email);
+    if (userOri) {
+        const index = users.indexOf(userOri);
+        users[index] = userNew;
+    }
+    resp.status(200);
+    return resp.json(userNew);
+});
+
+// Create a POST endpoint for users
+app.post('/api/users', (req: any, resp: any) => {
+    const userNew = req.body;
+    books.push(userNew);
+    resp.status(200);
+    return resp.json(userNew);
 });
 
 // Create a GET endpoint for books

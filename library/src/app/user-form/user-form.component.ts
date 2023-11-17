@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from '../shared/user.service';
+import { BookService } from '../shared/book.service';
 import { User } from '../models/user';
 
 @Component({
@@ -14,7 +15,8 @@ export class UserFormComponent implements OnInit {
 
   constructor(
     public auth: AngularFireAuth,
-    private userService: UserService
+    private userService: UserService,
+    private bookService: BookService
   ){ }
 
   ngOnInit(): void {
@@ -26,7 +28,9 @@ export class UserFormComponent implements OnInit {
   }
 
   getUser(uid: string): void {
-    this.userService.getUser(uid).subscribe(user => {this.user = user});
+    this.userService.getUser(uid).subscribe(user => {
+      this.user = user;
+    });
   }
 
 }

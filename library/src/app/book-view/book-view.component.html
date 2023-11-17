@@ -1,0 +1,25 @@
+<div *ngIf="book">
+    
+    <section>
+        <a href="{{ book.cover }}"><img src="{{ book.cover }}" width="100px"/></a>
+    </section>
+    
+    <section>
+      <div>
+        <label>Title:</label> {{ book.title }}
+      </div>
+      <div>
+        <label>Author:</label> {{ book.author }}
+      </div>
+      <div>
+        <label>Year:</label> {{ book.year }}
+      </div>
+      <div>
+        <label>Publisher:</label> {{ book.publisher }}
+      </div>
+      <div>
+        <label>Category:</label> {{ book.category }}
+      </div>
+    </section>
+    
+</div>

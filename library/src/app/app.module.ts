@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookSearchComponent } from './book-search/book-search.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { environment } from 'src/environments/environment';
+import { BookViewComponent } from './book-view/book-view.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { environment } from 'src/environments/environment';
     BookSearchComponent,
     MessagesComponent,
     DashboardComponent,
-    UserFormComponent
+    UserFormComponent,
+    BookViewComponent
   ],
   imports: [
     BrowserModule,

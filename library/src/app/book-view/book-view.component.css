@@ -1,0 +1,15 @@
+/* BookViewComponent's private CSS styles */
+section {
+  display: inline-block;
+  margin: 1%;
+  vertical-align: top;
+}
+div {
+  margin-bottom: 2%;
+  width: 150%;
+}
+label {
+    color: #435960;
+    font-weight: bold;
+    text-align: right;
+}

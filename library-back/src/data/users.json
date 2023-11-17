@@ -18,5 +18,11 @@
                 "date" : "2022-12-31T10:00:00Z"
             }
         ]
+    },
+    {
+        "email" : "admin@example.com",
+        "name" : "Admin",
+        "currentBorrows" : [],
+        "historyBorrows" : []
     }
 ]
