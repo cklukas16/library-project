@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { BookService } from '../shared/book.service';
 import { Book } from '../models/book';
 import { UserService } from '../shared/user.service';
-import { User } from '../models/user';
+import { Borrow, User } from '../models/user';
 
 @Component({
   selector: 'app-book-detail',
@@ -73,6 +73,12 @@ export class BookDetailComponent implements OnInit {
   //borrow current book by this user
   borrowBook(): void {
     if (this.book && this.book.copies > 0 && this.userService.currentUser) {
+
+      //check if the user already have this book, if so, reject the user
+      if (isBorrowed(this.book.id, this.userService.currentUser.currentBorrows)) {
+        alert('You already borrowed this book. Please choose another book.');
+        return;
+      }
       this.book.copies -= 1;
       this.bookService.updateBook(this.book).subscribe();
       this.userService.currentUser?.currentBorrows.push({
@@ -84,4 +90,13 @@ export class BookDetailComponent implements OnInit {
       alert("There is no copy available");
     }
   }
+}
+
+function isBorrowed(id :number, books: Borrow[]): boolean {
+  for (let i=0; i < books.length; i++) {
+    if (id === books[i].id) {
+      return true;
+    }
+  }
+  return false;
 }
