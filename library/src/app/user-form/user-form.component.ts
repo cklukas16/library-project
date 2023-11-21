@@ -28,6 +28,10 @@ export class UserFormComponent implements OnInit {
   }
 
   getUser(uid: string): void {
+    if (this.userService.currentUser) {
+      this.user = this.userService.currentUser;
+      return;
+    }
     this.userService.getUser(uid).subscribe(user => {
       this.user = user;
     });

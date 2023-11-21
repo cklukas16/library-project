@@ -22,7 +22,9 @@ export class DashboardComponent implements OnInit {
     this.auth.user.subscribe((userLog) => {
       uid = userLog?.email as string
       this.getUsername(uid);
+      this.userService.setCurrentUserEmail(uid);
     });
+    
   }
 
   getUsername(uid: string): void {

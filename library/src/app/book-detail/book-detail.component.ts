@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { BookService } from '../shared/book.service';
 import { Book } from '../models/book';
+import { UserService } from '../shared/user.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-book-detail',
@@ -17,7 +19,8 @@ export class BookDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
-    private location: Location
+    private location: Location,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -64,6 +67,21 @@ export class BookDetailComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsDataURL(this.coverFile);
       reader.onload= () => { this.coverView = reader.result}
+    }
+  }
+
+  //borrow current book by this user
+  borrowBook(): void {
+    if (this.book && this.book.copies > 0 && this.userService.currentUser) {
+      this.book.copies -= 1;
+      this.bookService.updateBook(this.book).subscribe();
+      this.userService.currentUser?.currentBorrows.push({
+        id: this.book.id,
+        date: new Date()
+      });
+      this.userService.updateUser(this.userService.currentUser);
+    } else {
+      alert("There is no copy available");
     }
   }
 }

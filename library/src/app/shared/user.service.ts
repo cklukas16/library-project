@@ -10,6 +10,9 @@ import { User } from '../models/user';
 })
 export class UserService {
 
+  //save the information for current user
+  currentUser : User | undefined;
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService
@@ -55,6 +58,22 @@ export class UserService {
     return this.http.get<User>(url).pipe(
       tap(_ => this.log(`fetched User id=${email}`)),
       catchError(this.handleError<User>(`getUser email=${email}`))
+    );
+  }
+
+  //save the current user information, will be used for later
+  setCurrentUserEmail(email :string) {
+    this.getUser(email).subscribe(
+      user=> {
+        this.currentUser = user
+      }
+      );
+  }
+
+  updateUser(user: User | undefined) : Observable<any> {
+    return this.http.put(this.usersUrl, user, this.httpOptions).pipe(
+      tap(_ => this.log(`updated user`)),
+      catchError(this.handleError<any>('update User'))
     );
   }
 
