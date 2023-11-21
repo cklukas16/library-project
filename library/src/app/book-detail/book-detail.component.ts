@@ -92,6 +92,7 @@ export class BookDetailComponent implements OnInit {
   }
 }
 
+// check if a book have been borrowed already.
 function isBorrowed(id :number, books: Borrow[]): boolean {
   for (let i=0; i < books.length; i++) {
     if (id === books[i].id) {

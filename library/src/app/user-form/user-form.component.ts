@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from '../shared/user.service';
 import { BookService } from '../shared/book.service';
-import { User } from '../models/user';
+import { Borrow, User } from '../models/user';
 
 @Component({
   selector: 'app-user-form',
@@ -37,4 +37,29 @@ export class UserFormComponent implements OnInit {
     });
   }
 
+  //return book
+  returnBook(id:number): void{
+    //delete from current borrowing list
+    let currBorrows = this.userService.currentUser?.currentBorrows;
+    let bookBorrowed;
+    if (currBorrows) {
+      for (let i = 0; i < currBorrows.length; i++) {
+        if (currBorrows[i].id === id) {
+          bookBorrowed = currBorrows[i];
+          currBorrows.splice(i, 1);
+          //update borrowing history
+          this.userService.currentUser?.historyBorrows.push(bookBorrowed);
+        }
+      }
+    }
+    //update user
+    this.userService.updateUser(this.userService.currentUser);
+    //update book inventory
+    let book;
+    this.bookService.getBook(id).subscribe(bk => {
+      book = bk;
+      book.copies += 1;
+      this.bookService.updateBook(bk).subscribe();
+    }); 
+  }
 }
