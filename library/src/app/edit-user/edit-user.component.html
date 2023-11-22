@@ -1,11 +1,11 @@
 
-
-  <div>
-    <input class="input-text" [(ngModel)]="email">
-  </div>
-  <div>
-    <input class="input-text" [(ngModel)]="password">
-  </div>
-  <button (click)="editUser()">Submit</button>
-
-
+  <form class="form" [formGroup]="form">
+    <div>
+      <input class="input-text" type="text" formControlName="email" value="{{email}}" >
+    </div>
+    <div>
+      <input class="input-text" type="password" formControlName="password" value="{{password}}">
+    </div>
+    <div>
+      <button type="submit" (click)="editUser()">Change</button>
+    </div>

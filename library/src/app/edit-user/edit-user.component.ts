@@ -3,6 +3,7 @@ import { User } from '../models/user';
 import { UserService } from '../shared/user.service';
 import { Location } from '@angular/common';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-user',
@@ -13,11 +14,18 @@ export class EditUserComponent {
   user: User | undefined;
   email: string = '';
   password: string = '******';
+  form: FormGroup;
 
   constructor(
     private userService: UserService, 
     private _location: Location,
-    public auth: AngularFireAuth,) {}
+    public auth: AngularFireAuth,
+    private fb: FormBuilder) {
+      this.form = this.fb.group({
+        email: ['',Validators.required],
+        password: ['',Validators.required]
+    });
+  }
 
   ngOnInit() {
     if (!this.userService.currentUser) {
@@ -30,8 +38,7 @@ export class EditUserComponent {
   //this does not work
   editUser() {
     //TODO
-    this.auth.currentUser.then((user)=>{
-
-    })
+    const val = this.form.value;
+    console.log(val.email, val.password);
   }
 }
