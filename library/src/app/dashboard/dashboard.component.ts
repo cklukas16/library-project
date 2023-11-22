@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from '../shared/user.service';
-import { User } from '../models/user';
+
 
 @Component({
   selector: 'app-dashboard',

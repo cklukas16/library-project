@@ -1,0 +1,21 @@
+button{
+  margin: 20px;
+  height: 50px;
+  width: 100px;
+}
+button:hover {
+  background-color: #42545C;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+.input-text {
+  text-align: center;
+  font-size: large;
+  margin: 10px;
+  width: 30%;
+  min-width: 400px;
+  min-height: 50px;
+}
