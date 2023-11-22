@@ -11,6 +11,9 @@
   width: 150px;
   margin-left: 20px;
 }
+.logo-picture:hover {
+  cursor: pointer;
+}
 .title {
   margin-left: 20%;
   margin-right: 20%;

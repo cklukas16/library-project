@@ -20,22 +20,25 @@ export class UserFormComponent implements OnInit {
   ){ }
 
   ngOnInit(): void {
-    let uid = '';
-    this.auth.user.subscribe((userLog) => {
-      uid = userLog?.email as string
-      this.getUser(uid);
-    });
+    this.user = this.userService.currentUser;
+
+    // let uid = '';
+    // this.auth.user.subscribe((userLog) => {
+    //   uid = userLog?.email as string
+    //   this.getUser(uid);
+    // });
   }
 
-  getUser(uid: string): void {
-    if (this.userService.currentUser) {
-      this.user = this.userService.currentUser;
-      return;
-    }
-    this.userService.getUser(uid).subscribe(user => {
-      this.user = user;
-    });
-  }
+  // useless code after we have currentUser in userService
+  // getUser(uid: string): void {
+  //   if (this.userService.currentUser) {
+  //     this.user = this.userService.currentUser;
+  //     return;
+  //   }
+  //   this.userService.getUser(uid).subscribe(user => {
+  //     this.user = user;
+  //   });
+  // }
 
   //return book
   returnBook(id:number): void{
