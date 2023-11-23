@@ -69,7 +69,7 @@ app.put('/api/users', (req: any, resp: any) => {
 // Create a POST endpoint for users
 app.post('/api/users', (req: any, resp: any) => {
     const userNew = req.body;
-    books.push(userNew);
+    users.push(userNew);
     resp.status(200);
     return resp.json(userNew);
 });

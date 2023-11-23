@@ -51,7 +51,13 @@ export class UserService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  /** GET book by id and freturn 404 if id is not found */
+  async initializeUser(email: string) {
+    this.getUser(email).subscribe((user)=> {
+      this.currentUser=user;
+    });
+  }
+
+  /** GET user by id and freturn 404 if id is not found */
   getUser(email: string): Observable<User> {
     const url = `${this.usersUrl}/${email}`;
     

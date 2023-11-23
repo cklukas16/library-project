@@ -24,5 +24,11 @@
         "name" : "Admin",
         "currentBorrows" : [],
         "historyBorrows" : []
+    },
+    {
+        "email" : "user2@example.com",
+        "name" : "user2",
+        "currentBorrows" : [],
+        "historyBorrows" : []
     }
 ]

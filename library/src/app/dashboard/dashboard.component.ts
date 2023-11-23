@@ -10,7 +10,7 @@ import { UserService } from '../shared/user.service';
 })
 export class DashboardComponent implements OnInit {
 
-  name: string = '';
+  name: string |undefined;
   
   constructor(
     public auth: AngularFireAuth,
@@ -20,16 +20,16 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     let uid = '';
     this.auth.user.subscribe((userLog) => {
-      uid = userLog?.email as string
-      this.getUsername(uid);
-      this.userService.setCurrentUserEmail(uid);
+      uid = userLog?.email as string;
+      this.name = uid;
+      this.userService.initializeUser(uid).then();
     });
     
   }
 
-  getUsername(uid: string): void {
-    this.userService.getUser(uid).subscribe(user => {this.name = user.name});
-  }
+  // getUsername(uid: string): void {
+  //   this.userService.getUser(uid).subscribe(user => {this.name = user.name});
+  // }
 
   signOut(): void {
     this.auth.signOut();

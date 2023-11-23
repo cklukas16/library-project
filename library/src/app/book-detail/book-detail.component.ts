@@ -72,8 +72,8 @@ export class BookDetailComponent implements OnInit {
 
   //borrow current book by this user
   borrowBook(): void {
-    if (this.book && this.book.copies > 0 && this.userService.currentUser) {
 
+    if (this.book && this.book.copies > 0 && this.userService.currentUser) {
       //check if the user already have this book, if so, reject the user
       if (isBorrowed(this.book.id, this.userService.currentUser.currentBorrows)) {
         alert('You already borrowed this book. Please choose another book.');
@@ -85,7 +85,7 @@ export class BookDetailComponent implements OnInit {
         id: this.book.id,
         date: new Date()
       });
-      this.userService.updateUser(this.userService.currentUser);
+      this.userService.updateUser(this.userService.currentUser).subscribe();
     } else {
       alert("There is no copy available");
     }

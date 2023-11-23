@@ -32,7 +32,6 @@ export class UserFormComponent implements OnInit {
 
   //return book
   returnBook(id:number): void{
-    console.log(this.userService.currentUser);
     //delete from current borrowing list
     let currBorrows = this.userService.currentUser?.currentBorrows;
     let bookBorrowed;
@@ -48,7 +47,6 @@ export class UserFormComponent implements OnInit {
     }
     //update user
     this.userService.updateUser(this.userService.currentUser).subscribe();
-    console.log(this.userService.currentUser);
     //update book inventory
     let book;
     this.bookService.getBook(id).subscribe(bk => {
