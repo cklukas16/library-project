@@ -67,14 +67,6 @@ export class UserService {
     );
   }
 
-  //save the current user information, will be used for later
-  setCurrentUserEmail(email :string) {
-    this.getUser(email).subscribe(
-      user=> {
-        this.currentUser = user
-      }
-      );
-  }
 
   updateUser(user: User | undefined) : Observable<any> {
     return this.http.put(this.usersUrl, user, this.httpOptions).pipe(
