@@ -4,9 +4,17 @@ const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
+// Mongo DB
+const MongoClient = require('mongodb').MongoClient;
+const cors = require('cors');
+const multer = require('multer');
+const CONNECTION_STRING = "mongodb+srv://admin:admin@cluster0.6iackud.mongodb.net/?retryWrites=true&w=majority";
+const DATABASENAME="librarydb";
+let database: any;
 
 // Initialization
 const app = express();
+app.use(cors());
 app.use(fileUpload());
 app.use(bodyParser.json());
 
@@ -39,6 +47,13 @@ fs.readFile(userData, (err: any, data: any) => {
         users = JSON.parse(data);
     }
 });
+
+//test http://localhost:3000/api/test to see if it is connected with Mongo db
+app.get('/api/test', (req: any, res: any)=> {
+    database.collection("books").find({}).toArray((error: any, result: any)=>{
+      res.send(result);
+    })
+  });
 
 // Create a GET endpoint for users
 app.get('/api/users/:email', (req: any, resp: any) => {
@@ -161,5 +176,10 @@ app.post('/api/covers', async (req: any, resp: any) => {
 
 // Listener
 app.listen(port, () => {
+    //connect to Mongodb
+    MongoClient.connect(CONNECTION_STRING, (error:any, client:any)=> {
+        database = client.db(DATABASENAME);
+        console.log("Mongo db connection successful.");
+      });
     console.log(`Running on port ${port}`);
 });
