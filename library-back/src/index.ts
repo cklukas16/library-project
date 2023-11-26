@@ -56,7 +56,7 @@ app.get('/api/test', (req: any, res: any)=> {
   });
 
 // Create a GET endpoint for users
-app.get('/api/users/:email', (req: any, resp: any) => {
+app.get('/api-test/users/:email', (req: any, resp: any) => {
     const user = users.find(user => user.email == req.params.email);
     if (user) {
         resp.status(200);
@@ -68,6 +68,20 @@ app.get('/api/users/:email', (req: any, resp: any) => {
         });
     }
 });
+
+// Create a GET endpoint for users with Mongo DB
+app.get('/api/users/:email', async (req: any, resp: any) => {
+    const user = await database.collection("users").findOne({email:req.params.email});
+    if (user) {
+        resp.status(200);
+        return resp.json(user);
+    } else {
+        resp.status(404);
+        return resp.json({
+            error: `User with email ${req.params.email} is not found`
+        });
+    }
+})
 
 // Create a PUT endpoint for users
 app.put('/api/users', (req: any, resp: any) => {
@@ -81,6 +95,26 @@ app.put('/api/users', (req: any, resp: any) => {
     return resp.json(userNew);
 });
 
+// Create a PUT endpoint for users with Mongo DB, not tested yet
+// TODO test this put function
+app.put('/api-test/users', async (req: any, resp: any)=> {
+    const userNew = req.body;
+    const userOri = await database.collection("users").findOne({email:req.params.email});
+    if (userOri) {
+        await database.collection("users").updateOne(
+            {email: req.params.email},
+            {$set: {
+                name: userNew.name,
+                currentBorrows: userNew.currentBorrows,
+                historyBorrows: userNew.historyBorrows
+            }}
+        )
+        resp.status(200);
+        return resp.json(userNew);
+    }
+    return resp.status(400);
+})
+
 // Create a POST endpoint for users
 app.post('/api/users', (req: any, resp: any) => {
     const userNew = req.body;
@@ -88,6 +122,12 @@ app.post('/api/users', (req: any, resp: any) => {
     resp.status(200);
     return resp.json(userNew);
 });
+
+// Create a POST endpoint for users in Mongo DB
+// TODO
+app.post('/api-test/users', async (req: any, resp: any) => {
+
+})
 
 // Create a GET endpoint for books
 app.get('/api/books', (req: any, resp: any) => {
@@ -100,6 +140,12 @@ app.get('/api/books', (req: any, resp: any) => {
         return resp.json(books);
     }
 });
+
+// Create a GET endpoint for books in Mongo DB
+// TODO
+app.get('/api-test/books', async (req: any, resp: any) => {
+
+})
 
 app.get('/api/books/:id', (req: any, resp: any) => {
     const book = books.find(book => book.id == req.params.id);
