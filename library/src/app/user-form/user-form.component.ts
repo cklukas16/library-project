@@ -19,15 +19,24 @@ export class UserFormComponent implements OnInit {
     public auth: AngularFireAuth,
     private userService: UserService,
     private bookService: BookService,
-    private _location: Location
+    private location: Location
   ){ }
 
   ngOnInit(): void {
     //to fix the refresh problem
-    if (!this.userService.currentUser) {
-      this._location.back();
+    /* if (!this.userService.currentUser) {
+      this.location.back();
     }
-    this.user = this.userService.currentUser;
+    this.user = this.userService.currentUser; */
+
+    this.auth.user.subscribe((userLog) => {
+      let uid = userLog?.email as string;
+      this.userService.getUser(uid).subscribe((user) => {
+        this.user = user;
+      });
+      
+    });
+    
   }
 
   //return book
@@ -52,7 +61,10 @@ export class UserFormComponent implements OnInit {
     this.bookService.getBook(id).subscribe(bk => {
       book = bk;
       book.copies += 1;
-      this.bookService.updateBook(bk).subscribe();
+      this.bookService.updateBook(bk).subscribe(() => {
+        window.alert('This book is successfully returned!');
+        window.location.reload();
+      });
     }); 
   }
 }

@@ -85,7 +85,9 @@ export class BookDetailComponent implements OnInit {
         id: this.book.id,
         date: new Date()
       });
-      this.userService.updateUser(this.userService.currentUser).subscribe();
+      this.userService.updateUser(this.userService.currentUser).subscribe(() => {
+        alert(`You borrowed ${this.book?.title} successfully!`);
+      });
     } else {
       alert("There is no copy available");
     }
