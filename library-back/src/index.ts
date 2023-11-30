@@ -223,9 +223,9 @@ app.post('/api/covers', async (req: any, resp: any) => {
 // Listener
 app.listen(port, () => {
     //connect to Mongodb
-    /* MongoClient.connect(CONNECTION_STRING, (error: any, client: any)=> {
+    MongoClient.connect(CONNECTION_STRING, (error: any, client: any)=> {
         database = client.db(DATABASENAME);
         console.log("Mongo db connection successful.");
-      }); */
+      }); 
     console.log(`Running on port ${port}`);
 });
