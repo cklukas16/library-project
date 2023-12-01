@@ -15,6 +15,8 @@ export class BookDetailComponent implements OnInit {
   book: Book | undefined;
   coverFile: File | undefined;
   coverView: any;
+  userID: any = this.userService.currentUser?.email;
+  isReadOnly: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,6 +27,9 @@ export class BookDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBook();
+    if (this.userID == "admin@example.com"){
+      this.isReadOnly = false;
+    }
   }
   
   getBook(): void {

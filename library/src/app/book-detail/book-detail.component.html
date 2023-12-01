@@ -21,33 +21,35 @@
       <div class="id">
         <label>Id: </label><strong>{{book.id}}</strong>
       </div>
+      <!-- Put in a container?? -->
       <div>
         <label for="title">Title: </label>
-        <input id="title" [(ngModel)]="book.title" placeholder="title">
+        <input id="title" [(ngModel)]="book.title" placeholder="title" [readonly]="isReadOnly">
       </div>
       <div>
         <label for="author">Author: </label>
-        <input id="author" [(ngModel)]="book.author" placeholder="author">
+        <input id="author" [(ngModel)]="book.author" placeholder="author" [readonly]="isReadOnly">
       </div>
       <div>
         <label for="year">Year: </label>
-        <input id="year" [(ngModel)]="book.year" placeholder="year">
+        <input id="year" [(ngModel)]="book.year" placeholder="year" [readonly]="isReadOnly">
       </div>
       <div>
         <label for="publisher">Publisher: </label>
-        <input id="publisher" [(ngModel)]="book.publisher" placeholder="publisher">
+        <input id="publisher" [(ngModel)]="book.publisher" placeholder="publisher" [readonly]="isReadOnly">
       </div>
       <div>
         <label for="category">Category: </label>
-        <input id="category" [(ngModel)]="book.category" placeholder="category">
+        <input id="category" [(ngModel)]="book.category" placeholder="category" [readonly]="isReadOnly">
       </div>
       <div>
         <label for="copies">Copies: </label>
-        <input id="copies" [(ngModel)]="book.copies" placeholder="copies">
+        <input id="copies" [(ngModel)]="book.copies" placeholder="copies" [readonly]="isReadOnly">
       </div>
+      
       <div class="buttons">
-        <button (click)="fileUpload.click()">Browse cover image</button>
-        <button (click)="save()">Update</button>
+        <button *ngIf="userID == 'admin@example.com'" (click)="fileUpload.click()">Browse cover image</button>
+        <button *ngIf="userID == 'admin@example.com'" (click)="save()">Update</button>
         <button (click)="goBack()">Back</button>
         <button (click)="borrowBook()">Borrow</button>
       </div>

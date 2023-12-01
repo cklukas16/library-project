@@ -6,7 +6,7 @@
       <span class="badge">{{book.id}}</span>
       <span class="title">{{ book.title || "Click to update"}}</span>
     </a>
-    <button type="button" class="delete" title="delete book" (click)="delete(book)">
+    <button *ngIf="userID == 'admin@example.com'" type="button" class="delete" title="delete book" (click)="delete(book)">
       <img src="../../assets/icons/ic-delete-file.svg"/>
     </button>
   </li>
