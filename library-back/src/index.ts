@@ -56,7 +56,7 @@ app.get('/api/test', (req: any, res: any)=> {
   });
 
 // Create a GET endpoint for users
-app.get('/api-test/users/:email', (req: any, resp: any) => {
+app.get('/api/users/:email', (req: any, resp: any) => {
     const user = users.find(user => user.email == req.params.email);
     if (user) {
         resp.status(200);
@@ -70,7 +70,7 @@ app.get('/api-test/users/:email', (req: any, resp: any) => {
 });
 
 // Create a GET endpoint for users with Mongo DB
-app.get('/api/users/:email', async (req: any, resp: any) => {
+app.get('/api-test/users/:email', async (req: any, resp: any) => {
     const user = await database.collection("users").findOne({email:req.params.email});
     if (user) {
         resp.status(200);
@@ -223,9 +223,9 @@ app.post('/api/covers', async (req: any, resp: any) => {
 // Listener
 app.listen(port, () => {
     //connect to Mongodb
-    MongoClient.connect(CONNECTION_STRING, (error:any, client:any)=> {
-        database = client.db(DATABASENAME);
-        console.log("Mongo db connection successful.");
-      });
+    // MongoClient.connect(CONNECTION_STRING, (error:any, client:any)=> {
+    //     database = client.db(DATABASENAME);
+    //     console.log("Mongo db connection successful.");
+    //   });
     console.log(`Running on port ${port}`);
 });
