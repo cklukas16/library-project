@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from '../shared/user.service';
 import { BookService } from '../shared/book.service';
-import { User } from '../models/user';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-form',
@@ -11,32 +8,26 @@ import { Location } from '@angular/common';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
+
+  users: any[] = [];
   
-  user: User | undefined;
-
-
   constructor(
-    public auth: AngularFireAuth,
     private userService: UserService,
-    private bookService: BookService,
-    private location: Location
+    private bookService: BookService
   ){ }
 
-  ngOnInit(): void {
-    //to fix the refresh problem
-    /* if (!this.userService.currentUser) {
-      this.location.back();
-    }
-    this.user = this.userService.currentUser; */
+  ngOnInit() {
+    this.getUsers();
+  }
 
-    this.auth.user.subscribe((userLog) => {
-      let uid = userLog?.email as string;
-      this.userService.getUser(uid).subscribe((user) => {
-        this.user = user;
-      });
-      
+  getUser(): any {
+    return this.userService.currentUser;
+  }
+
+  getUsers(): any {
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
     });
-    
   }
 
   //return book
@@ -63,7 +54,7 @@ export class UserFormComponent implements OnInit {
       book.copies += 1;
       this.bookService.updateBook(bk).subscribe(() => {
         window.alert('This book is successfully returned!');
-        window.location.reload();
+        //window.location.reload();
       });
     }); 
   }

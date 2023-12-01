@@ -67,6 +67,13 @@ export class UserService {
     );
   }
 
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.usersUrl).pipe(
+      tap(_ => this.log(`fetched Users`)),
+      catchError(this.handleError<User[]>(`getUsers`))
+    );
+  }
+
 
   updateUser(user: User | undefined) : Observable<any> {
     return this.http.put(this.usersUrl, user, this.httpOptions).pipe(

@@ -20,14 +20,19 @@
         ]
     },
     {
-        "email" : "admin@example.com",
-        "name" : "Admin",
-        "currentBorrows" : [],
+        "email" : "user2@example.com",
+        "name" : "user2",
+        "currentBorrows" : [
+            {
+                "id" : 5,
+                "date" : "2023-11-21T08:00:00Z"
+            }
+        ],
         "historyBorrows" : []
     },
     {
-        "email" : "user2@example.com",
-        "name" : "user2",
+        "email" : "admin@example.com",
+        "name" : "Admin",
         "currentBorrows" : [],
         "historyBorrows" : []
     }
