@@ -1,102 +1,58 @@
 <div *ngIf="book">
     <h2>Details about &nbsp; <span class="title">{{ book.title | uppercase }}</span></h2>
     
-    <div *ngIf="getUser() === 'admin@example.com'">
-      <section>
-        <input type="file" class="file-input" #fileUpload (change)="onFileSelected($event)">
-        
-        <div *ngIf="coverView">
-          <img src="{{ coverView }}" width="250px"/>
-        </div>
-        <div *ngIf="!coverView">
-          <div *ngIf="book.cover">
-            <a href="{{ book.cover }}"><img src="{{ book.cover }}" width="250px"/></a>
-          </div>
-          <div *ngIf="!book.cover" class="file-upload">
-            <img src="../../assets/icons/ic-upload-file.svg"/>
-          </div>
-        </div>
-      </section>
+    <section>
+      <input type="file" class="file-input" #fileUpload (change)="onFileSelected($event)">
       
-      <section>
-        <div class="id">
-          <label>Id: </label><strong>{{book.id}}</strong>
-        </div>
-        <div>
-          <label for="title">Title: </label>
-          <input id="title" [(ngModel)]="book.title" placeholder="title">
-        </div>
-        <div>
-          <label for="author">Author: </label>
-          <input id="author" [(ngModel)]="book.author" placeholder="author">
-        </div>
-        <div>
-          <label for="year">Year: </label>
-          <input id="year" [(ngModel)]="book.year" placeholder="year">
-        </div>
-        <div>
-          <label for="publisher">Publisher: </label>
-          <input id="publisher" [(ngModel)]="book.publisher" placeholder="publisher">
-        </div>
-        <div>
-          <label for="category">Category: </label>
-          <input id="category" [(ngModel)]="book.category" placeholder="category">
-        </div>
-        <div>
-          <label for="copies">Copies: </label>
-          <input id="copies" [(ngModel)]="book.copies" placeholder="copies">
-        </div>
-        <div class="buttons">
-          <button (click)="fileUpload.click()">Browse cover image</button>
-          <button (click)="save()">Update</button>
-          <button (click)="goBack()">Back</button>
-          <!-- <button (click)="borrowBook()">Borrow</button> -->
-        </div>
-      </section>
-    </div>
-
-    <div *ngIf="getUser() !== 'admin@example.com'">
-      <section>
+      <div *ngIf="coverView">
+        <img src="{{ coverView }}" width="250px"/>
+      </div>
+      <div *ngIf="!coverView">
         <div *ngIf="book.cover">
           <a href="{{ book.cover }}"><img src="{{ book.cover }}" width="250px"/></a>
         </div>
         <div *ngIf="!book.cover" class="file-upload">
           <img src="../../assets/icons/ic-upload-file.svg"/>
         </div>
-      </section>
-      <section>
-        <div class="id">
-          <label>Id: </label><strong>{{book.id}}</strong>
-        </div>
-        <div>
-          <label for="title">Title: </label>
-          {{book.title}}
-        </div>
-        <div>
-          <label for="author">Author: </label>
-          {{book.author}}
-        </div>
-        <div>
-          <label for="year">Year: </label>
-          {{book.year}}
-        </div>
-        <div>
-          <label for="publisher">Publisher: </label>
-          {{book.publisher}}
-        </div>
-        <div>
-          <label for="category">Category: </label>
-          {{book.category}}
-        </div>
-        <div>
-          <label for="copies">Copies: </label>
-          {{book.copies}}
-        </div>
-        <div class="buttons">
-          <button (click)="borrowBook()">Borrow</button>
-          <button (click)="goBack()">Back</button>
-        </div>
-      </section>
-    </div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="id">
+        <label>Id: </label><strong>{{book.id}}</strong>
+      </div>
+      <!-- Put in a container?? -->
+      <div>
+        <label for="title">Title: </label>
+        <input id="title" [(ngModel)]="book.title" placeholder="title" [readonly]="isReadOnly">
+      </div>
+      <div>
+        <label for="author">Author: </label>
+        <input id="author" [(ngModel)]="book.author" placeholder="author" [readonly]="isReadOnly">
+      </div>
+      <div>
+        <label for="year">Year: </label>
+        <input id="year" [(ngModel)]="book.year" placeholder="year" [readonly]="isReadOnly">
+      </div>
+      <div>
+        <label for="publisher">Publisher: </label>
+        <input id="publisher" [(ngModel)]="book.publisher" placeholder="publisher" [readonly]="isReadOnly">
+      </div>
+      <div>
+        <label for="category">Category: </label>
+        <input id="category" [(ngModel)]="book.category" placeholder="category" [readonly]="isReadOnly">
+      </div>
+      <div>
+        <label for="copies">Copies: </label>
+        <input id="copies" [(ngModel)]="book.copies" placeholder="copies" [readonly]="isReadOnly">
+      </div>
+      
+      <div class="buttons">
+        <button *ngIf="userID == 'admin@example.com'" (click)="fileUpload.click()">Browse cover image</button>
+        <button *ngIf="userID == 'admin@example.com'" (click)="save()">Update</button>
+        <button (click)="goBack()">Back</button>
+        <button (click)="borrowBook()">Borrow</button>
+      </div>
+    </section>
     
 </div>
