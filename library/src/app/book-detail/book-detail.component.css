@@ -25,6 +25,10 @@ input {
   width: 14em;
 }
 
+input:read-only {
+  border: none;
+}
+
 button {
   margin-top: 20px;
   background-color: #eee;

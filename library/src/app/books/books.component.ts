@@ -10,10 +10,11 @@ import { Book } from '../models/book';
 })
 export class BooksComponent implements OnInit {
   books: Book[] = [];
-  userID: any = this.userService.currentUser?.email;
   
-  constructor(private bookService: BookService, 
-    private userService: UserService) {}
+  constructor(
+    private bookService: BookService, 
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.getBooks();
@@ -32,5 +33,10 @@ export class BooksComponent implements OnInit {
     this.bookService.addBook({} as Book).subscribe(book => {
         this.books.push(book);
       });
+  }
+
+  // check user type
+  isAdmin(): boolean {
+    return this.userService.currentUser?.email === 'admin@example.com';
   }
 }

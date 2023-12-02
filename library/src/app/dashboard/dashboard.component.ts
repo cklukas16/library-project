@@ -11,7 +11,6 @@ import { UserService } from '../shared/user.service';
 export class DashboardComponent implements OnInit {
 
   name: string |undefined;
-  editMessage: string = "View Booklist";
   
   constructor(
     public auth: AngularFireAuth,
@@ -24,16 +23,13 @@ export class DashboardComponent implements OnInit {
       uid = userLog?.email as string;
       this.name = uid;
       this.userService.initializeUser(uid).then();
-
-      if (uid == "admin@example.com"){
-        this.editMessage = "View and Edit Booklist";
-      }
     });
   }
 
-  // getUsername(uid: string): void {
-  //   this.userService.getUser(uid).subscribe(user => {this.name = user.name});
-  // }
+  // check user type
+  isAdmin(): boolean {
+    return this.userService.currentUser?.email === 'admin@example.com';
+  }
 
   signOut(): void {
     this.auth.signOut();

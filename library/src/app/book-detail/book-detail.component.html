@@ -24,34 +24,34 @@
       <!-- Put in a container?? -->
       <div>
         <label for="title">Title: </label>
-        <input id="title" [(ngModel)]="book.title" placeholder="title" [readonly]="isReadOnly">
+        <input id="title" [(ngModel)]="book.title" placeholder="title" [readonly]="!isAdmin()">
       </div>
       <div>
         <label for="author">Author: </label>
-        <input id="author" [(ngModel)]="book.author" placeholder="author" [readonly]="isReadOnly">
+        <input id="author" [(ngModel)]="book.author" placeholder="author" [readonly]="!isAdmin()">
       </div>
       <div>
         <label for="year">Year: </label>
-        <input id="year" [(ngModel)]="book.year" placeholder="year" [readonly]="isReadOnly">
+        <input id="year" [(ngModel)]="book.year" placeholder="year" [readonly]="!isAdmin()">
       </div>
       <div>
         <label for="publisher">Publisher: </label>
-        <input id="publisher" [(ngModel)]="book.publisher" placeholder="publisher" [readonly]="isReadOnly">
+        <input id="publisher" [(ngModel)]="book.publisher" placeholder="publisher" [readonly]="!isAdmin()">
       </div>
       <div>
         <label for="category">Category: </label>
-        <input id="category" [(ngModel)]="book.category" placeholder="category" [readonly]="isReadOnly">
+        <input id="category" [(ngModel)]="book.category" placeholder="category" [readonly]="!isAdmin()">
       </div>
       <div>
         <label for="copies">Copies: </label>
-        <input id="copies" [(ngModel)]="book.copies" placeholder="copies" [readonly]="isReadOnly">
+        <input id="copies" [(ngModel)]="book.copies" placeholder="copies" [readonly]="!isAdmin()">
       </div>
       
       <div class="buttons">
-        <button *ngIf="userID == 'admin@example.com'" (click)="fileUpload.click()">Browse cover image</button>
-        <button *ngIf="userID == 'admin@example.com'" (click)="save()">Update</button>
+        <button *ngIf="isAdmin()" (click)="fileUpload.click()">Browse cover image</button>
+        <button *ngIf="isAdmin()" (click)="save()">Update</button>
         <button (click)="goBack()">Back</button>
-        <button (click)="borrowBook()">Borrow</button>
+        <button *ngIf="!isAdmin()" (click)="borrowBook()">Borrow</button>
       </div>
     </section>
     
