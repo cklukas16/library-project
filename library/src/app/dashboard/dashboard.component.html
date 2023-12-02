@@ -5,18 +5,25 @@
     <div class="profile btn" (click)="signOut()">Sign Out</div>
 </header>
 
-<nav class="sidebar">
+<nav class="sidebar" *ngIf="isAdmin()">
     <div class="btn" routerLink="/">Search for a book</div>
     <div class="btn" routerLink="/book">{{editMessage}}</div>
     <div class="btn" routerLink="/user">View borrowing history</div>
     <div class="btn" routerLink="/#">Send message to all user</div>
-    <div class="btn" routerLink="/#">View message from user</div>
+    <div class="btn" routerLink="/#">View messages</div>
     <div class="btn" routerLink="/#">Contact users</div>
+</nav>
+<nav class="sidebar" *ngIf="!isAdmin()">
+    <div class="btn" routerLink="/">Search for a book</div>
+    <div class="btn" routerLink="/book">View booklist</div>
+    <div class="btn" routerLink="/user">View borrowing history</div>
+    <div class="btn" routerLink="/#">View messages</div>
+    <div class="btn" routerLink="/#">Contact admin</div>
 </nav>
 
 <div class="main-content">
     <router-outlet></router-outlet>
     <br/>
-    <hr>
-    <app-messages></app-messages>
+    <!-- <hr>
+    <app-messages></app-messages> -->
 </div>

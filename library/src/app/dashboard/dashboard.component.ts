@@ -31,9 +31,10 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  // getUsername(uid: string): void {
-  //   this.userService.getUser(uid).subscribe(user => {this.name = user.name});
-  // }
+  // check user type
+  isAdmin(): boolean {
+    return this.userService.currentUser?.email === 'admin@example.com';
+  }
 
   signOut(): void {
     this.auth.signOut();

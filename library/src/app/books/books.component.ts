@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../shared/book.service';
 import { UserService } from '../shared/user.service';
+import { UserService } from '../shared/user.service';
 import { Book } from '../models/book';
 
 @Component({
@@ -12,8 +13,10 @@ export class BooksComponent implements OnInit {
   books: Book[] = [];
   userID: any = this.userService.currentUser?.email;
   
-  constructor(private bookService: BookService, 
-    private userService: UserService) {}
+  constructor(
+    private bookService: BookService, 
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.getBooks();
@@ -32,5 +35,10 @@ export class BooksComponent implements OnInit {
     this.bookService.addBook({} as Book).subscribe(book => {
         this.books.push(book);
       });
+  }
+
+  // check user type
+  isAdmin(): boolean {
+    return this.userService.currentUser?.email === 'admin@example.com';
   }
 }

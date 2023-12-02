@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { BookService } from '../shared/book.service';
 import { Book } from '../models/book';
 import { UserService } from '../shared/user.service';
-import { Borrow, User } from '../models/user';
+import { Borrow } from '../models/user';
 
 @Component({
   selector: 'app-book-detail',
@@ -23,7 +23,7 @@ export class BookDetailComponent implements OnInit {
     private bookService: BookService,
     private location: Location,
     private userService: UserService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getBook();
@@ -90,11 +90,19 @@ export class BookDetailComponent implements OnInit {
         id: this.book.id,
         date: new Date()
       });
-      this.userService.updateUser(this.userService.currentUser).subscribe();
+      this.userService.updateUser(this.userService.currentUser).subscribe(() => {
+        alert(`You borrowed ${this.book?.title} successfully!`);
+      });
     } else {
       alert("There is no copy available");
     }
   }
+
+  // check user type
+  isAdmin(): boolean {
+    return this.userService.currentUser?.email === 'admin@example.com';
+  }
+
 }
 
 // check if a book have been borrowed already.

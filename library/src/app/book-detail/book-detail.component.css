@@ -7,6 +7,7 @@ label {
   width: 90px;
   text-align: right;
   margin-right: 10px;
+  padding: .5rem;
 }
 
 div {
@@ -22,6 +23,10 @@ input {
   font-size: 1em;
   padding: .5rem;
   width: 14em;
+}
+
+input:read-only {
+  border: none;
 }
 
 button {

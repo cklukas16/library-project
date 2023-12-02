@@ -22,6 +22,9 @@ input:focus {
 
 li {
     list-style-type: none;
+    width: 100%;
+    max-width: 600px;
+    background-color:rgb(247, 254, 254);
 }
 
 .search-result li a {

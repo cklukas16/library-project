@@ -1,25 +1,34 @@
 <h2>Borrowing Details</h2>
 <p>
-    {{user?.name}}: {{user?.email}}
+    {{getUser().name}}: {{getUser().email}}
 </p>
 <br/>
 
-<section *ngIf="user?.email === 'admin@example.com'">
-    <h3>User information</h3><hr>
-    <p>List of users</p>
+<section *ngIf="getUser().email === 'admin@example.com'">
+    <h3>List of users</h3>
+    <div *ngFor="let user of users">
+        <div *ngIf="user.email !== 'admin@example.com'">
+            <hr>
+            <h3>{{user.email}}</h3>
+            <p *ngFor="let borrow of user.currentBorrows">
+                Borrowing Date: <strong>{{ borrow.date | date }}</strong>
+                <button>Message</button>
+                <app-book-view [id]="borrow.id"></app-book-view>
+            </p>
+        </div>
+    </div>
 </section>
 
-<section *ngIf="user?.email !== 'admin@example.com'">
+<section *ngIf="getUser().email !== 'admin@example.com'">
     <h3>Current Borrowing</h3><hr>
-    <p *ngFor="let borrow of user?.currentBorrows">
+    <p *ngFor="let borrow of getUser().currentBorrows">
         Borrowing Date: <strong>{{ borrow.date | date }}</strong>
-        <app-book-view [id]="borrow.id"></app-book-view>
         <button (click)="returnBook(borrow.id)">Return</button>
+        <app-book-view [id]="borrow.id"></app-book-view>
     </p>
     <h3>Borrowing History</h3><hr>
-    <p *ngFor="let borrow of user?.historyBorrows">
+    <p *ngFor="let borrow of getUser().historyBorrows">
         Borrowing Date: <strong>{{ borrow.date | date }}</strong>
         <app-book-view [id]="borrow.id"></app-book-view>
     </p>
 </section>
-

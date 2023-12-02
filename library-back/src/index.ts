@@ -53,24 +53,10 @@ app.get('/api/test', (req: any, res: any)=> {
     database.collection("books").find({}).toArray((error: any, result: any)=>{
       res.send(result);
     })
-  });
-
-// Create a GET endpoint for users
-app.get('/api-test/users/:email', (req: any, resp: any) => {
-    const user = users.find(user => user.email == req.params.email);
-    if (user) {
-        resp.status(200);
-        return resp.json(user);
-    } else {
-        resp.status(404);
-        return resp.json({
-            error: `User with email ${req.params.email} is not found`
-        });
-    }
 });
 
 // Create a GET endpoint for users with Mongo DB
-app.get('/api/users/:email', async (req: any, resp: any) => {
+app.get('/api-test/users/:email', async (req: any, resp: any) => {
     const user = await database.collection("users").findOne({email:req.params.email});
     if (user) {
         resp.status(200);
@@ -81,18 +67,6 @@ app.get('/api/users/:email', async (req: any, resp: any) => {
             error: `User with email ${req.params.email} is not found`
         });
     }
-})
-
-// Create a PUT endpoint for users
-app.put('/api/users', (req: any, resp: any) => {
-    const userNew = req.body;
-    const userOri = users.find(user => user.email == userNew.email);
-    if (userOri) {
-        const index = users.indexOf(userOri);
-        users[index] = userNew;
-    }
-    resp.status(200);
-    return resp.json(userNew);
 });
 
 // Create a PUT endpoint for users with Mongo DB, not tested yet
@@ -113,7 +87,44 @@ app.put('/api-test/users', async (req: any, resp: any)=> {
         return resp.json(userNew);
     }
     return resp.status(400);
-})
+});
+
+// Create a POST endpoint for users in Mongo DB
+// TODO
+app.post('/api-test/users', async (req: any, resp: any) => {
+
+});
+
+// Create a GET endpoint for users
+app.get('/api/users/:email', (req: any, resp: any) => {
+    const user = users.find(user => user.email == req.params.email);
+    if (user) {
+        resp.status(200);
+        return resp.json(user);
+    } else {
+        resp.status(404);
+        return resp.json({
+            error: `User with email ${req.params.email} is not found`
+        });
+    }
+});
+
+// Create a GET endpoint for users
+app.get('/api/users', (req: any, resp: any) => {
+    resp.status(200);
+    return resp.json(users);
+});
+
+app.put('/api/users', (req: any, resp: any) => {
+    const userNew = req.body;
+    const userOri = users.find(user => user.email == userNew.email);
+    if (userOri) {
+        const index = users.indexOf(userOri);
+        users[index] = userNew;
+    }
+    resp.status(200);
+    return resp.json(userNew);
+});
 
 // Create a POST endpoint for users
 app.post('/api/users', (req: any, resp: any) => {
@@ -122,12 +133,6 @@ app.post('/api/users', (req: any, resp: any) => {
     resp.status(200);
     return resp.json(userNew);
 });
-
-// Create a POST endpoint for users in Mongo DB
-// TODO
-app.post('/api-test/users', async (req: any, resp: any) => {
-
-})
 
 // Create a GET endpoint for books
 app.get('/api/books', (req: any, resp: any) => {
@@ -223,9 +228,9 @@ app.post('/api/covers', async (req: any, resp: any) => {
 // Listener
 app.listen(port, () => {
     //connect to Mongodb
-    MongoClient.connect(CONNECTION_STRING, (error:any, client:any)=> {
+    MongoClient.connect(CONNECTION_STRING, (error: any, client: any)=> {
         database = client.db(DATABASENAME);
         console.log("Mongo db connection successful.");
-      });
+      }); 
     console.log(`Running on port ${port}`);
 });
