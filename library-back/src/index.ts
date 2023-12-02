@@ -53,20 +53,6 @@ app.get('/api/test', (req: any, res: any)=> {
     database.collection("books").find({}).toArray((error: any, result: any)=>{
       res.send(result);
     })
-//   });
-
-// // Create a GET endpoint for users
-// app.get('/api/users/:email', (req: any, resp: any) => {
-//     const user = users.find(user => user.email == req.params.email);
-//     if (user) {
-//         resp.status(200);
-//         return resp.json(user);
-//     } else {
-//         resp.status(404);
-//         return resp.json({
-//             error: `User with email ${req.params.email} is not found`
-//         });
-//     }
 });
 
 // Create a GET endpoint for users with Mongo DB
