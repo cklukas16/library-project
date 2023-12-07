@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { UserService } from '../shared/user.service';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -28,7 +27,7 @@ export class DashboardComponent implements OnInit {
 
   // check user type
   isAdmin(): boolean {
-    return this.userService.currentUser?.email === 'admin@example.com';
+    return this.userService.isAdmin();
   }
 
   signOut(): void {
