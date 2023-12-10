@@ -4,7 +4,7 @@
 </p>
 <br/>
 
-<section *ngIf="getUser().email === 'admin@example.com'">
+<section *ngIf="isAdmin()">
     <h3>List of users</h3>
     <div *ngFor="let user of users">
         <div *ngIf="user.email !== 'admin@example.com'">
@@ -19,7 +19,7 @@
     </div>
 </section>
 
-<section *ngIf="getUser().email !== 'admin@example.com'">
+<section *ngIf="!isAdmin()">
     <h3>Current Borrowing</h3><hr>
     <p *ngFor="let borrow of getUser().currentBorrows">
         Borrowing Date: <strong>{{ borrow.date | date }}</strong>

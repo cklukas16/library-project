@@ -11,7 +11,12 @@ import { User } from '../models/user';
 export class UserService {
 
   //save the information for current user
-  currentUser : User | undefined;
+  currentUser: User = {
+    email: '',
+    name: '',
+    currentBorrows: [],
+    historyBorrows: []
+  };
 
   constructor(
     private http: HttpClient,
@@ -80,6 +85,10 @@ export class UserService {
       tap(_ => this.log(`updated user`)),
       catchError(this.handleError<any>('update User'))
     );
+  }
+
+  isAdmin() {
+    return this.currentUser?.email === 'admin@example.com';
   }
 
 }

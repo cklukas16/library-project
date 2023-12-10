@@ -30,6 +30,11 @@ export class UserFormComponent implements OnInit {
     });
   }
 
+  // check user type
+  isAdmin(): boolean {
+    return this.userService.isAdmin();
+  }
+
   //return book
   returnBook(id:number): void{
     //delete from current borrowing list

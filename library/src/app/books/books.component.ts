@@ -38,6 +38,6 @@ export class BooksComponent implements OnInit {
 
   // check user type
   isAdmin(): boolean {
-    return this.userService.currentUser?.email === 'admin@example.com';
+    return this.userService.isAdmin();
   }
 }
