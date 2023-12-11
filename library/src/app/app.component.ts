@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent {
 
   constructor(
     public auth: AngularFireAuth,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public router: Router
   ){
     this.form = this.fb.group({
       email: ['',Validators.required],
@@ -24,6 +26,7 @@ export class AppComponent {
     const val = this.form.value;
     this.auth.signInWithEmailAndPassword(val.email, val.password).then(() => {
       window.alert('Welcome to the Library!');
+      this.router.navigate(['']);
     }).catch(() => {
       window.alert('Please check your email and password');
     });

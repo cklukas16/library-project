@@ -63,4 +63,9 @@ export class UserFormComponent implements OnInit {
       });
     }); 
   }
+
+  sendMessages(uid: any): void {
+    let msg = window.prompt(`Send a message to notify ${uid}.`);
+    console.log(msg);
+  }
 }

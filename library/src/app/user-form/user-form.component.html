@@ -12,7 +12,7 @@
             <h3>{{user.email}}</h3>
             <p *ngFor="let borrow of user.currentBorrows">
                 Borrowing Date: <strong>{{ borrow.date | date }}</strong>
-                <button>Message</button>
+                <button (click)="sendMessages(user.email)">Message</button>
                 <app-book-view [id]="borrow.id"></app-book-view>
             </p>
         </div>
