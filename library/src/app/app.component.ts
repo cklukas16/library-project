@@ -41,19 +41,16 @@ export class AppComponent {
   signUp(): void {
     const val = this.form.value;
     this.auth.createUserWithEmailAndPassword(val.email.trim(), val.password).then(() => {
-      
+      window.alert('Sign up successful!');
+      this.router.navigate(['']);
+
       let newUser: User = {
         email: val.email.trim(),
         name: val.email.trim(),
         currentBorrows: [],
         historyBorrows: []
       }
-      this.userService.addUser(newUser).subscribe({
-        next: () => {
-          window.alert('Sign up successful!');
-          this.router.navigate(['']);
-        }
-      })
+      this.userService.addUser(newUser).subscribe();
     }).catch(() => {
       window.alert('The email address is already in use by another account');
     });
