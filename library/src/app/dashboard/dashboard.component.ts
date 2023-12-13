@@ -21,7 +21,9 @@ export class DashboardComponent implements OnInit {
     this.auth.user.subscribe((userLog) => {
       uid = userLog?.email as string;
       this.name = uid;
-      this.userService.initializeUser(uid).then();
+      if (!this.userService.currentUser.name) {
+        this.userService.initializeUser(uid).then();
+      }
     });
   }
 

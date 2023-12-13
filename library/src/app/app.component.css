@@ -37,3 +37,24 @@ small:hover {
   color: #42545C;
   font-style: italic;
 }
+.hint {
+  margin-top: 10%;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+table {
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 100%;
+}
+thead {
+  background-color: rgb(230, 230, 230);
+  width: max-content;
+  text-align: left;
+}
+th, td {
+  height: 40px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  text-align: center;
+}

@@ -12,8 +12,8 @@ export class UserService {
 
   //save the information for current user
   currentUser: User = {
-    email: '',
     name: '',
+    email: '',
     currentBorrows: [],
     historyBorrows: []
   };
@@ -57,8 +57,10 @@ export class UserService {
   };
 
   async initializeUser(email: string) {
-    this.getUser(email).subscribe((user)=> {
-      this.currentUser=user;
+    this.getUser(email).subscribe({
+      next: (user) => {
+        this.currentUser = user;
+      }
     });
   }
 
@@ -79,11 +81,17 @@ export class UserService {
     );
   }
 
+  addUser(user: User): Observable<User> {
+    return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
+      tap(_ => this.log(`added user`)),
+      catchError(this.handleError<any>('addUser'))
+    );
+  }
 
   updateUser(user: User | undefined) : Observable<any> {
     return this.http.put(this.usersUrl, user, this.httpOptions).pipe(
       tap(_ => this.log(`updated user`)),
-      catchError(this.handleError<any>('update User'))
+      catchError(this.handleError<any>('updateUser'))
     );
   }
 

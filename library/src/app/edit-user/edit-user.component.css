@@ -1,21 +1,12 @@
-button{
-  margin: 20px;
-  height: 50px;
-  width: 100px;
+.button input{
+  margin-top: 20px;
+  height: 30px;
 }
-button:hover {
+.button input:hover {
   background-color: #42545C;
+  color: white;
 }
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
-}
-.input-text {
-  text-align: center;
-  font-size: large;
-  margin: 10px;
-  width: 30%;
-  min-width: 400px;
-  min-height: 50px;
+.control input {
+  height: 30px;
+  font-size: medium;
 }

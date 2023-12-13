@@ -1,13 +1,22 @@
+<!-- <form class="form" [formGroup]="userform">
+  <div>
+    <label>Email: </label>
+    <input class="input-text" type="text" formControlName="email" value="{{email}}">
+  </div>
+  <div>
+    <label>Password: </label>
+    <input class="input-text" type="password" formControlName="password" value="{{password}}">
+  </div>
+    <button type="submit" (click)="editUser()">Change</button>
+  </div>
+</form> -->
 
-  <form class="form" [formGroup]="form">
-    <div>
-      <label>Email: </label>
-      <input class="input-text" type="text" formControlName="email" value="{{email}}" >
-    </div>
-    <div>
-      <label>Password: </label>
-      <input class="input-text" type="password" formControlName="password" value="{{password}}">
-    </div>
-    <div>
-      <button type="submit" (click)="editUser()">Change</button>
-    </div>
+<form [formGroup]="userForm" (ngSubmit)="editUser()">
+  <div class="control">
+      <label>Name: </label>
+      <input type="text" formControlName="userName"/>
+  </div>
+  <div class="button">
+      <input type="submit" value="Update"/>
+  </div>
+</form>

@@ -1,44 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../shared/user.service';
 import { Location } from '@angular/common';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
   styleUrls: ['./edit-user.component.css']
 })
-export class EditUserComponent {
+export class EditUserComponent implements OnInit {
   user: User | undefined;
-  email: string = '';
-  password: string = '******';
-  form: FormGroup;
+  userForm: FormGroup = new FormGroup({
+    userName: new FormControl('', Validators.required),
+  });
 
   constructor(
-    private userService: UserService, 
-    private _location: Location,
-    public auth: AngularFireAuth,
-    private fb: FormBuilder) {
-      this.form = this.fb.group({
-        email: ['',Validators.required],
-        password: ['',Validators.required]
-    });
-  }
+    private userService: UserService,
+    private location: Location,
+    public auth: AngularFireAuth
+  ) { }
 
   ngOnInit() {
     if (!this.userService.currentUser) {
-      this._location.back();
+      this.location.back();
+    } else {
+      this.user = this.userService.currentUser;
     }
-    this.user = this.userService.currentUser;
-    this.email = this.user?.email || '';
   }
 
-  //this does not work
   editUser() {
-    //TODO
-    const val = this.form.value;
-    console.log(val.email, val.password);
+    const val = this.userForm.value;
+    if (val.userName && this.user) {
+      this.user.name = val.userName;
+      this.userService.updateUser(this.user).subscribe({
+        next: () => {
+          window.alert('Profile updated!');
+        }
+      });
+    }
   }
 }
