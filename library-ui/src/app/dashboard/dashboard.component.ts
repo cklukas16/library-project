@@ -23,6 +23,8 @@ export class DashboardComponent implements OnInit {
       this.name = uid;
       if (!this.userService.currentUser.name) {
         this.userService.initializeUser(uid).then();
+      } else if (this.userService.currentUser.email !== uid) {
+        window.location.reload();
       }
     });
   }
