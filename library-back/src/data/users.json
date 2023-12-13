@@ -17,7 +17,8 @@
                 "id" : 8,
                 "date" : "2022-12-31T10:00:00Z"
             }
-        ]
+        ],
+        "message" : []
     },
     {
         "email" : "user2@example.com",
@@ -28,12 +29,14 @@
                 "date" : "2023-11-21T08:00:00Z"
             }
         ],
-        "historyBorrows" : []
+        "historyBorrows" : [],
+        "message" : []
     },
     {
         "email" : "admin@example.com",
         "name" : "Admin",
         "currentBorrows" : [],
-        "historyBorrows" : []
+        "historyBorrows" : [],
+        "message" : []
     }
 ]

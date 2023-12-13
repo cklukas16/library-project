@@ -7,5 +7,6 @@ export interface User {
 
   export interface Borrow {
     id: number;
-    date: Date
+    date: Date;
+    message: string
   }

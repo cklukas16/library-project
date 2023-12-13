@@ -11,3 +11,9 @@ button {
 button:hover {
     background-color: #435960;
 }
+.message {
+    width: fit-content;
+    padding: 1%;
+    border: solid 2px #cf941d;
+    border-radius: 4px;
+}

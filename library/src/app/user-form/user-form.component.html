@@ -7,12 +7,12 @@
 <section *ngIf="isAdmin()">
     <h3>List of users</h3>
     <div *ngFor="let user of users">
-        <div *ngIf="user.email !== 'admin@example.com'">
+        <div *ngIf="!isAdmin(user.email)">
             <hr>
             <h3>{{user.email}}</h3>
             <p *ngFor="let borrow of user.currentBorrows">
                 Borrowing Date: <strong>{{ borrow.date | date }}</strong>
-                <button (click)="sendMessages(user.email)">Message</button>
+                <button (click)="sendMessages(user.email, borrow)">Message</button>
                 <app-book-view [id]="borrow.id"></app-book-view>
             </p>
         </div>
@@ -21,14 +21,17 @@
 
 <section *ngIf="!isAdmin()">
     <h3>Current Borrowing</h3><hr>
-    <p *ngFor="let borrow of getUser().currentBorrows">
+    <div *ngFor="let borrow of getUser().currentBorrows">
         Borrowing Date: <strong>{{ borrow.date | date }}</strong>
         <button (click)="returnBook(borrow.id)">Return</button>
+        <div class="message" *ngIf="borrow.message">
+            Librarian: {{ borrow.message }}
+        </div>
         <app-book-view [id]="borrow.id"></app-book-view>
-    </p>
+    </div>
     <h3>Borrowing History</h3><hr>
-    <p *ngFor="let borrow of getUser().historyBorrows">
+    <div *ngFor="let borrow of getUser().historyBorrows">
         Borrowing Date: <strong>{{ borrow.date | date }}</strong>
         <app-book-view [id]="borrow.id"></app-book-view>
-    </p>
+    </div>
 </section>

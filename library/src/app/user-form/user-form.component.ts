@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { BookService } from '../shared/book.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-user-form',
@@ -9,7 +10,7 @@ import { BookService } from '../shared/book.service';
 })
 export class UserFormComponent implements OnInit {
 
-  users: any[] = [];
+  users: User[] = [];
   
   constructor(
     private userService: UserService,
@@ -31,8 +32,12 @@ export class UserFormComponent implements OnInit {
   }
 
   // check user type
-  isAdmin(): boolean {
-    return this.userService.isAdmin();
+  isAdmin(email?: string): boolean {
+    if (email) {
+      return this.userService.isAdmin(email);
+    } else {
+      return this.userService.isAdmin();
+    }
   }
 
   //return book
@@ -64,8 +69,19 @@ export class UserFormComponent implements OnInit {
     }); 
   }
 
-  sendMessages(uid: any): void {
+  sendMessages(uid: any, borrow: any): void {
     let msg = window.prompt(`Send a message to notify ${uid}.`);
-    console.log(msg);
+    
+    if (msg) {
+      let user = this.users.find(user => user.email == uid) as User;
+      let index = user.currentBorrows.indexOf(borrow);
+      user.currentBorrows[index].message = msg;
+      this.userService.updateUser(user).subscribe({
+        next: () => {
+          window.alert('Message sent!');
+        }
+      });
+    }
+    
   }
 }

@@ -83,7 +83,8 @@ export class BookDetailComponent implements OnInit {
       this.bookService.updateBook(this.book).subscribe();
       this.userService.currentUser?.currentBorrows.push({
         id: this.book.id,
-        date: new Date()
+        date: new Date(),
+        message: ''
       });
       this.userService.updateUser(this.userService.currentUser).subscribe(() => {
         alert(`You borrowed ${this.book?.title} successfully!`);

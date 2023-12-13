@@ -87,8 +87,12 @@ export class UserService {
     );
   }
 
-  isAdmin() {
-    return this.currentUser?.email === 'admin@example.com';
+  isAdmin(email?: string) {
+    if (email) {
+      return email === 'admin@example.com';
+    } else {
+      return this.currentUser?.email === 'admin@example.com';
+    }
   }
 
 }
